@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 
 
 
-class THttpHelper
+class FHttpHelper
 {
 
   static const String _baseUrl = "your api key here"; //replace with your api key

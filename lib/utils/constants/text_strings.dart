@@ -1,4 +1,4 @@
-class TTexts {
+class FTexts {
   //global texts
 
   //onboarding texts

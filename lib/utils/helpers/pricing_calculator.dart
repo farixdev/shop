@@ -1,6 +1,6 @@
 
 
-class TPricingCalculator
+class FPricingCalculator
 {
 
   //calculates the total price of a product based on its base price, location
