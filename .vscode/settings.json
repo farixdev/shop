@@ -1,0 +1,6 @@
+{
+    "cmake.sourceDirectory": "D:/Projects/eApp/shop/windows",
+    "chat.tools.terminal.autoApprove": {
+        "flutter": true
+    }
+}
