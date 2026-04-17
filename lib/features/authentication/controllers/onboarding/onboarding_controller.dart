@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-
 class OnBoardingController extends GetxController {
   static OnBoardingController get instance => Get.find();
 
@@ -19,7 +18,14 @@ class OnBoardingController extends GetxController {
   }
 
   //Update current index and jump to the next page
-  void nextPage() {}
+  void nextPage() {
+    if (currentPageIndex.value == 2) {
+      //Get.to(LoginScreen());
+    } else {
+      int page = currentPageIndex.value + 1;
+      pageController.jumpToPage(page);
+    }
+  }
 
   //Update current index and jump to the last page
   void skipPage() {
