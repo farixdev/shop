@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
+
 class OnBoardingController extends GetxController {
   static OnBoardingController get instance => Get.find();
 
@@ -21,5 +22,8 @@ class OnBoardingController extends GetxController {
   void nextPage() {}
 
   //Update current index and jump to the last page
-  void skipPage() {}
+  void skipPage() {
+    currentPageIndex.value = 2;
+    pageController.jumpTo(2);
+  }
 }
