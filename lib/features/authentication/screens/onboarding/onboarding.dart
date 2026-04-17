@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import 'package:shop/features/authentication/controllers/onboarding/onboarding_controller.dart';
+
 import 'package:shop/features/authentication/screens/onboarding/widgets/onboarding_dot_navigation.dart';
+import 'package:shop/features/authentication/screens/onboarding/widgets/onboarding_next_button.dart';
 import 'package:shop/features/authentication/screens/onboarding/widgets/onboarding_page.dart';
 import 'package:shop/features/authentication/screens/onboarding/widgets/onboarding_skip.dart';
 
@@ -12,6 +17,9 @@ class OnBoardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final controller = Get.put(OnBoardingController());
+
     return Scaffold(
       body: Stack(
         children: [
@@ -43,6 +51,7 @@ class OnBoardingScreen extends StatelessWidget {
           const OnBoardingDotNavigation(),
 
           ///Circular button
+          const OnBoardingNextButton(),
         ],
       ),
     );
