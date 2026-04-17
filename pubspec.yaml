@@ -48,12 +48,12 @@ flutter:
   uses-material-design: true
 
 
-#------------------- local assests -------------------#
+#------------------- local assets -------------------#
 
-assests:
-  - assests/images/on_boarding_images/
-  - assests/icons/brands/
-  - assests/logos/
+  assets:
+    - assets/images/on_boarding_images/
+    - assets/icons/brand/
+    - assets/logos/
 
 
 #------------------- local fonts -------------------#
@@ -61,17 +61,17 @@ assests:
 fonts:
   - family: poppins
     fonts:
-      - asset: assests/fonts/Poppins-Regular.ttf
+      - asset: assets/fonts/Poppins-Regular.ttf
         weight: 400
-      - asset: assests/fonts/Poppins-Bold.ttf
+      - asset: assets/fonts/Poppins-Bold.ttf
         weight: 800
-      - asset: assests/fonts/Poppins-Medium.ttf
+      - asset: assets/fonts/Poppins-Medium.ttf
         weight: 500
-      - asset: assests/fonts/Poppins-SemiBold.ttf
+      - asset: assets/fonts/Poppins-SemiBold.ttf
         weight: 600
-      - asset: assests/fonts/Poppins-Light.ttf 
+      - asset: assets/fonts/Poppins-Light.ttf 
         weight: 300
-      - asset: assests/fonts/Poppins-ExtraBold.ttf
+      - asset: assets/fonts/Poppins-ExtraBold.ttf
         weight: 900
-      - asset: assests/fonts/Poppins-Italic.ttf
+      - asset: assets/fonts/Poppins-Italic.ttf
         style: italic
