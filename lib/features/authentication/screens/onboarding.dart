@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shop/utils/constants/image_strings.dart';
 import 'package:shop/utils/constants/sizes.dart';
 import 'package:shop/utils/constants/text_strings.dart';
+import 'package:shop/utils/device/device_utility.dart';
 import 'package:shop/utils/helpers/helper_functions.dart';
 
 class OnBoardingScreen extends StatelessWidget {
@@ -21,9 +22,28 @@ class OnBoardingScreen extends StatelessWidget {
 
 
           ///skip button
+          const OnBoardingSkip(),
           ///Dot naviagation
           ///Circular butoon
         ],
+      ),
+    );
+  }
+}
+
+class OnBoardingSkip extends StatelessWidget {
+  const OnBoardingSkip({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      top: FDeviceUtility.getAppBarHeight(),
+      right: FSizes.defaultSpace,
+      child: TextButton(
+        onPressed: () {},
+        child: const Text("Skip"),
       ),
     );
   }
