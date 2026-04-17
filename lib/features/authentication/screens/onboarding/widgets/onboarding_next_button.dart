@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
+import 'package:shop/features/authentication/controllers/onboarding/onboarding_controller.dart';
 
 import 'package:shop/utils/constants/colors.dart';
 
@@ -18,7 +19,7 @@ class OnBoardingNextButton extends StatelessWidget {
       right: FSizes.defaultSpace,
       bottom: FDeviceUtility.getBottomNavigationBarHeight(),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () => OnBoardingController.instance.nextPage(),
         style: ElevatedButton.styleFrom(
           shape: const CircleBorder(),
           backgroundColor: dark ? FColors.primaryColor : Colors.black,
