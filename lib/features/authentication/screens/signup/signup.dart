@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/src/extensions/string_extensions.dart';
 
 import 'package:iconsax_flutter/iconsax_flutter.dart';
+import 'package:shop/common/widgets/login_signup/form_devider.dart';
+import 'package:shop/common/widgets/login_signup/social_buttons.dart';
 import 'package:shop/utils/constants/colors.dart';
 import 'package:shop/utils/constants/sizes.dart';
 import 'package:shop/utils/constants/text_strings.dart';
@@ -13,11 +16,13 @@ class SignupScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = FHelperFunctions.isDarkMode(context);
     return Scaffold(
+      //will make custom appbar later
       appBar: AppBar(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsetsGeometry.all(FSizes.defaultSpace),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ///Title
               Text(
@@ -146,10 +151,26 @@ class SignupScreen extends StatelessWidget {
                       ],
                     ),
 
+                    const SizedBox(height: FSizes.defaultBtwSections),
+
                     ///signup button
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        child: const Text(FTexts.createAccount),
+                      ),
+                    ),
                   ],
                 ),
               ),
+              const SizedBox(height: FSizes.defaultBtwSections),
+              ///Devider
+              FFormDevider(dividerText: FTexts.orSignUpWith.capitalize!),
+              const SizedBox(height: FSizes.defaultBtwSections),
+
+              /// Social buttons
+              const FSocialButton(),
             ],
           ),
         ),
