@@ -12,5 +12,6 @@ class FImages {
   static const String onBoardingImage2 = "assets/images/on_boarding_images/Tracking-Order-Online.gif";
   static const String onBoardingImage3 = "assets/images/on_boarding_images/home-delivery.gif";
 
-    static const String verifyEmailImage = "assets/images/animations/verify-email.png";
+  static const String verifyEmailImage = "assets/images/animations/verify-email.png";
+  static const String successImage = "assets/images/animations/success.png";
 }
