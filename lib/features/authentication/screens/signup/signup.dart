@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+
 import 'package:iconsax_flutter/iconsax_flutter.dart';
+import 'package:shop/utils/constants/colors.dart';
 import 'package:shop/utils/constants/sizes.dart';
 import 'package:shop/utils/constants/text_strings.dart';
+import 'package:shop/utils/helpers/helper_functions.dart';
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final dark = FHelperFunctions.isDarkMode(context);
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
@@ -59,6 +63,7 @@ class SignupScreen extends StatelessWidget {
                         prefixIcon: Icon(Iconsax.user_edit),
                       ),
                     ),
+                    const SizedBox(height: FSizes.spaceBtwInputFields),
 
                     ///Email
                     TextFormField(
@@ -90,6 +95,57 @@ class SignupScreen extends StatelessWidget {
                     const SizedBox(height: FSizes.spaceBtwInputFields),
 
                     ///Terms and conditions checkbox
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 24,
+                          height: 24,
+                          child: Checkbox(value: true, onChanged: (value) {}),
+                        ),
+                        const SizedBox(width: FSizes.defaultBtwItems),
+                        Text.rich(
+                          TextSpan(
+                            children: [
+                              TextSpan(
+                                text: '${FTexts.iAgreeTo} ',
+                                style: Theme.of(context).textTheme.bodySmall,
+                              ),
+                              TextSpan(
+                                text: '${FTexts.privacyPolicy} ',
+                                style: Theme.of(context).textTheme.bodyMedium!
+                                    .apply(
+                                      color: dark
+                                          ? FColors.white
+                                          : FColors.primaryColor,
+                                      decoration: TextDecoration.underline,
+                                      decorationColor: dark
+                                          ? FColors.white
+                                          : FColors.primaryColor,
+                                    ),
+                              ),
+                              TextSpan(
+                                text: '${FTexts.and} ',
+                                style: Theme.of(context).textTheme.bodySmall,
+                              ),
+                              TextSpan(
+                                text: FTexts.termOfUse,
+                                style: Theme.of(context).textTheme.bodyMedium!
+                                    .apply(
+                                      color: dark
+                                          ? FColors.white
+                                          : FColors.primaryColor,
+                                      decoration: TextDecoration.underline,
+                                      decorationColor: dark
+                                          ? FColors.white
+                                          : FColors.primaryColor,
+                                    ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+
                     ///signup button
                   ],
                 ),
