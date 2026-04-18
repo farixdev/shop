@@ -36,6 +36,7 @@ class FTexts {
   static const String and = "and";
   static const String fcontinue = "Continue";
   static const String submit = "Submit";
+  static const String done = "Done";
 
   //authentication Heading Texts
   static const String loginTitle = "Welcome Back,";
