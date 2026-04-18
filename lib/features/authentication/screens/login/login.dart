@@ -21,7 +21,7 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: TSpacingStyle.paddingWithAppBarHeight,
+          padding: FSpacingStyle.paddingWithAppBarHeight,
           child: Column(
             children: [
               //logo, title and subtitle
