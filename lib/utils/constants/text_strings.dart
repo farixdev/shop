@@ -31,6 +31,8 @@ class FTexts {
   static const String resendEmail = "Resend Email";
   static const String resendEmailIn = "Resend Email in";
   static const String and = "and";
+  static const String fcontinue = "Continue";
+  
   
   
 
