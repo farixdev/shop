@@ -30,6 +30,8 @@ class FTexts {
   static const String verificationCode = "Verification Code";
   static const String resendEmail = "Resend Email";
   static const String resendEmailIn = "Resend Email in";
+  static const String and = "and";
+  
   
 
   //authentication Heading Texts
