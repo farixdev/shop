@@ -8,6 +8,7 @@ import 'package:shop/utils/theme/custom_themes/elevated_button_theme.dart';
 import 'package:shop/utils/theme/custom_themes/outlined_button_theme.dart';
 import 'package:shop/utils/theme/custom_themes/text_field_theme.dart';
 import 'package:shop/utils/theme/custom_themes/text_theme.dart';
+import 'package:shop/utils/constants/colors.dart';
 
 class AppTheme {
   AppTheme._();
@@ -34,7 +35,7 @@ class AppTheme {
     fontFamily: "Poppins",
     brightness: Brightness.dark,
     primaryColor: Colors.blue,
-    scaffoldBackgroundColor: Colors.black,
+    scaffoldBackgroundColor: FColors.dark,
     textTheme: FTextAppTheme.darkTextTheme, 
     elevatedButtonTheme: FAppElevatedButtonTheme.darkElevatedButtonTheme,
     appBarTheme: FAppBarTheme.darkBarTheme,
