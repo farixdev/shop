@@ -28,15 +28,69 @@ class SignupScreen extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        TextFormField(
-                          expands: false,
-                          decoration: const InputDecoration(
-                            label: Text(FTexts.firstName),
-                            prefixIcon: Icon(Iconsax.user),
+                        Expanded(
+                          child: TextFormField(
+                            expands: false,
+                            decoration: const InputDecoration(
+                              label: Text(FTexts.firstName),
+                              prefixIcon: Icon(Iconsax.user),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: FSizes.spaceBtwInputFields),
+                        Expanded(
+                          child: TextFormField(
+                            expands: false,
+                            decoration: const InputDecoration(
+                              label: Text(FTexts.lastName),
+                              prefixIcon: Icon(Iconsax.user),
+                            ),
                           ),
                         ),
                       ],
                     ),
+                    const SizedBox(height: FSizes.spaceBtwInputFields),
+
+                    ///Username
+                    TextFormField(
+                      expands: false,
+                      decoration: const InputDecoration(
+                        label: Text(FTexts.username),
+                        prefixIcon: Icon(Iconsax.user_edit),
+                      ),
+                    ),
+
+                    ///Email
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        label: Text(FTexts.email),
+                        prefixIcon: Icon(Iconsax.direct),
+                      ),
+                    ),
+                    const SizedBox(height: FSizes.spaceBtwInputFields),
+
+                    ///Phone Number
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        label: Text(FTexts.phoneNo),
+                        prefixIcon: Icon(Iconsax.call),
+                      ),
+                    ),
+                    const SizedBox(height: FSizes.spaceBtwInputFields),
+
+                    ///password
+                    TextFormField(
+                      obscureText: true,
+                      decoration: const InputDecoration(
+                        labelText: FTexts.phoneNo,
+                        prefixIcon: Icon(Iconsax.password_check),
+                        suffixIcon: Icon(Iconsax.eye_slash),
+                      ),
+                    ),
+                    const SizedBox(height: FSizes.spaceBtwInputFields),
+
+                    ///Terms and conditions checkbox
+                    ///signup button
                   ],
                 ),
               ),
