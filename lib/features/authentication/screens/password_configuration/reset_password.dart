@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:get/utils.dart';
+import 'package:shop/features/authentication/screens/login/login.dart';
 import 'package:shop/utils/constants/image_strings.dart';
 import 'package:shop/utils/constants/sizes.dart';
 import 'package:shop/utils/constants/text_strings.dart';
@@ -17,12 +18,12 @@ class ResetPassword extends StatelessWidget {
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-            onPressed: () => Get.back,
+            onPressed: () => Get.to(() => const LoginScreen()),
             icon: Icon(CupertinoIcons.clear),
           ),
         ],
       ),
-      body:  SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(FSizes.defaultSpace),
           child: Column(
@@ -52,8 +53,16 @@ class ResetPassword extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: (){},
-                  child: const Text(FTexts.fcontinue),
+                  onPressed: () {},
+                  child: const Text(FTexts.done),
+                ),
+              ),
+              const SizedBox(height: FSizes.defaultBtwItems),
+              SizedBox(
+                width: double.infinity,
+                child: TextButton(
+                  onPressed: () {},
+                  child: const Text(FTexts.resendEmail),
                 ),
               ),
             ],
