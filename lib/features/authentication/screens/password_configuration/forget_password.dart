@@ -18,7 +18,7 @@ class ForgetPassword extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //Heading
-            Text(FTexts.forgotPasswordTitle, style: Theme.of(context).textTheme.headlineSmall),
+            Text(FTexts.forgotPasswordTitle, style: Theme.of(context).textTheme.headlineLarge),
             const SizedBox(height: FSizes.defaultBtwItems),
             Text(FTexts.forgotPasswordSubTitle, style: Theme.of(context).textTheme.labelMedium),
             const SizedBox(height: FSizes.defaultBtwSections * 2),
