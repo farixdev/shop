@@ -23,7 +23,10 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(height: FSizes.defaultBtwSections),
                   //Search Bar
                   FSearchContainer(text: 'Search in Store'),
+                  const SizedBox(height: FSizes.defaultBtwSections),
                   //Catogories
+
+                  
                 ],
               ),
             ),
