@@ -58,4 +58,10 @@ class FTexts {
       "Your Account Has Been Created!";
   static const String yourAccountCreatedSubTitle =
       "Welcome to your ultimale shopping destination! Your account has been successfully created. unleash the joy of seamless online shopping";
+
+
+  //home
+  static const String homeAppBarTitle = "Good day for shopping";
+  static const String homeAppBarSubTitle = "Faris Ahmad";
+
 }
