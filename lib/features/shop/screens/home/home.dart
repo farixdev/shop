@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:shop/common/widgets/custom_shapes/containers/primary_header_container.dart';
 
+
+import 'package:shop/common/widgets/custom_shapes/containers/primary_header_container.dart';
+import 'package:shop/features/shop/screens/home/widgets/home_appbar.dart';
 
 
 class HomeScreen extends StatelessWidget {
@@ -9,10 +11,23 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       body: SingleChildScrollView(
         child: Column(
-          children: [FPrimaryHeaderContainer(child: Container()  )],
+          children: [
+            FPrimaryHeaderContainer(
+              child: Column(
+                children: [
+                  ///Appbar
+                  FHomeAppBar(),
+
+                  //Search Bar
+                  
+                  //Catogories
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
