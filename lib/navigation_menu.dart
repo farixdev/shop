@@ -21,7 +21,7 @@ class NavigationMenu extends StatelessWidget {
           selectedIndex: controller.selectedIndex.value,
           onDestinationSelected: (index) =>
               controller.selectedIndex.value = index,
-          backgroundColor: darkMode? FColors.black : FColors.light,
+          backgroundColor: darkMode? FColors.black : Colors.white,
           // ignore: deprecated_member_use
           indicatorColor: darkMode? FColors.white.withOpacity(0.1)  : FColors.black.withOpacity(0.1),
           
