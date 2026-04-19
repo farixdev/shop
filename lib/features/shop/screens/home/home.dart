@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:shop/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:shop/features/shop/screens/home/widgets/home_appbar.dart';
+import 'package:shop/utils/device/device_utility.dart';
 
 
 class HomeScreen extends StatelessWidget {
@@ -22,7 +23,10 @@ class HomeScreen extends StatelessWidget {
                   FHomeAppBar(),
 
                   //Search Bar
-                  
+                  Container(
+                    width: FDeviceUtility.getScreenWidth(context),
+                    
+                  )
                   //Catogories
                 ],
               ),
