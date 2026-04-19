@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
 
-
 import 'package:shop/common/widgets/custom_shapes/containers/primary_header_container.dart';
+import 'package:shop/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:shop/features/shop/screens/home/widgets/home_appbar.dart';
-import 'package:shop/utils/device/device_utility.dart';
-
+import 'package:shop/utils/constants/sizes.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -21,12 +20,9 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   ///Appbar
                   FHomeAppBar(),
-
+                  const SizedBox(height: FSizes.defaultBtwSections),
                   //Search Bar
-                  Container(
-                    width: FDeviceUtility.getScreenWidth(context),
-                    
-                  )
+                  FSearchContainer(text: 'Search in Store'),
                   //Catogories
                 ],
               ),
