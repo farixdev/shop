@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 
 import 'package:shop/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:shop/common/widgets/custom_shapes/containers/search_container.dart';
+
 import 'package:shop/common/widgets/texts/section_heading.dart';
 import 'package:shop/features/shop/screens/home/widgets/home_appbar.dart';
+import 'package:shop/features/shop/screens/home/widgets/home_categories.dart';
+import 'package:shop/utils/constants/colors.dart';
+
 import 'package:shop/utils/constants/sizes.dart';
+
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -27,13 +32,19 @@ class HomeScreen extends StatelessWidget {
                   //Catogories
                   Padding(
                     padding: EdgeInsets.only(left: FSizes.defaultSpace),
-                    child: Column(children: [
-                      //heading
-                      FSectionHeading(title: 'Popular Categories', showActionButton: false),
-                      const SizedBox(height: FSizes.defaultBtwItems),
-                      //catogery
-                      
-                      ]),
+                    child: Column(
+                      children: [
+                        //heading
+                        FSectionHeading(
+                          title: 'Popular Categories',
+                          showActionButton: false,
+                          textColor: FColors.white,
+                        ),
+                        const SizedBox(height: FSizes.defaultBtwItems),
+                        //catogery
+                        FHomeCategory(),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -44,5 +55,4 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
 
