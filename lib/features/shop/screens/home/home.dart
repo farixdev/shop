@@ -7,9 +7,9 @@ import 'package:shop/common/widgets/texts/section_heading.dart';
 import 'package:shop/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:shop/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:shop/utils/constants/colors.dart';
+import 'package:shop/utils/constants/image_strings.dart';
 
 import 'package:shop/utils/constants/sizes.dart';
-
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -49,10 +49,20 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
+
+            //body
+            Padding(
+              padding: const EdgeInsets.all(FSizes.defaultSpace),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(FSizes.md),
+                ),
+                child: const Image(image: AssetImage(FImages.shoeBanner)),
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 }
-
