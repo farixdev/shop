@@ -30,4 +30,13 @@ class FImages {
   static const String toyCarIcon = "assets/icons/categories/toy-car.png";
   static const String womenShoesIcon =
       "assets/icons/categories/women-shoes.png";
+
+  //banner
+  static const String clothBanner =
+      "assets/images/banners/Promo-Banner-Cloths.jpg";
+  static const String shoeBanner =
+      "assets/images/banners/Promo-Banner-Shoes.jpg";
+
+  static const String watchBanner =
+      "assets/images/banners/Promo-Banner-Watch.jpg";
 }
