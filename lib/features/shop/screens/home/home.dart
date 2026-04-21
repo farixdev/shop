@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:shop/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:shop/common/widgets/custom_shapes/containers/search_container.dart';
+import 'package:shop/common/widgets/layouts/grid_layout.dart';
 import 'package:shop/common/widgets/products/product_cards/product_card_vertical.dart';
 
 import 'package:shop/common/widgets/texts/section_heading.dart';
@@ -85,7 +86,8 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(height: FSizes.defaultBtwSections),
 
                   //POPULAR PRODUCTS
-                  FProductCardVertical(),
+                  FGridLayout(itemCount: 4, itemBuilder: (_, index) => FProductCardVertical(),)
+                  ,
                 ],
               ),
             ),
@@ -95,3 +97,4 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
