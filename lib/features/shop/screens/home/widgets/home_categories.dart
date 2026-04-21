@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
 
-
 import 'package:shop/common/widgets/image_text/vertical_image_text.dart';
-
-
-import 'package:shop/utils/constants/image_strings.dart';
-
 
 
 
 class FHomeCategory extends StatelessWidget {
-  const FHomeCategory({
-    super.key,
-  });
+  const FHomeCategory({super.key, required this.categories});
+
+  final List<Map<String, String>> categories;
 
   @override
   Widget build(BuildContext context) {
@@ -20,12 +15,12 @@ class FHomeCategory extends StatelessWidget {
       height: 80,
       child: ListView.builder(
         shrinkWrap: true,
-        itemCount: 6,
+        itemCount: categories.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (_, index) {
           return FVerticalImageText(
-            image: FImages.womenShoesIcon,
-            title: 'Shoes',
+            image: categories[index]['image']!,
+            title: categories[index]['title']!,
             onTap: () {},
           );
         },
@@ -33,4 +28,3 @@ class FHomeCategory extends StatelessWidget {
     );
   }
 }
-
