@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 import 'package:shop/utils/constants/colors.dart';
 
 import 'package:shop/utils/constants/sizes.dart';
@@ -37,20 +36,11 @@ class FVerticalImageText extends StatelessWidget {
               padding: EdgeInsets.all(FSizes.sm),
               decoration: BoxDecoration(
                 color:
-                    backgroundColor ??
-                    (dark
-                        ? FColors.black
-                        : FColors.white),
+                    backgroundColor ?? (dark ? FColors.black : FColors.white),
                 borderRadius: BorderRadius.circular(100),
               ),
               child: Center(
-                child: Image(
-                  image: AssetImage(image),
-                  fit: BoxFit.cover,
-                  color: dark
-                      ? FColors.light
-                      : FColors.dark,
-                ),
+                child: Image(image: AssetImage(image), fit: BoxFit.cover),
               ),
             ),
             //Text
@@ -64,6 +54,7 @@ class FVerticalImageText extends StatelessWidget {
                 ).textTheme.labelMedium!.apply(color: textColor),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.center,
               ),
             ),
           ],
