@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:shop/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:shop/common/widgets/custom_shapes/containers/search_container.dart';
+import 'package:shop/common/widgets/images/rounded-image.dart';
 
 import 'package:shop/common/widgets/texts/section_heading.dart';
 import 'package:shop/features/shop/screens/home/widgets/home_appbar.dart';
@@ -51,14 +52,9 @@ class HomeScreen extends StatelessWidget {
             ),
 
             //body
-            Padding(
-              padding: const EdgeInsets.all(FSizes.defaultSpace),
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(FSizes.md),
-                ),
-                child: const Image(image: AssetImage(FImages.shoeBanner)),
-              ),
+            Padding( 
+              padding: EdgeInsets.all(FSizes.md),
+              child: FRoundedImage(imageUrl: FImages.watchBanner, ),
             ),
           ],
         ),
@@ -66,3 +62,4 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
