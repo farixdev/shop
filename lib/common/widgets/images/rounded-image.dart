@@ -17,7 +17,7 @@ class FRoundedImage extends StatelessWidget {
     this.border,
     this.backgroundColor = FColors.light,
     this.fit = BoxFit.contain,
-    this.padding ,
+    this.padding = const EdgeInsets.all(0),
     this.isNetworkImage = false,
     this.onPressed,
     this.borderRadius = FSizes.md,
