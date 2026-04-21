@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 
-import 'package:shop/common/widgets/imag_text/vertical_image_text.dart';
+import 'package:shop/common/widgets/image_text/vertical_image_text.dart';
 
 
 import 'package:shop/utils/constants/image_strings.dart';
