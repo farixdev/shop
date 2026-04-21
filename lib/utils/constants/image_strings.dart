@@ -39,4 +39,10 @@ class FImages {
 
   static const String watchBanner =
       "assets/images/banners/Promo-Banner-Watch.jpg";
+
+
+    //product images
+    static const String tshirt1 = "assets/images/products/tshirt-1.png";
+    static const String sneakers1 = "assets/images/products/sneakers-1.png";
+    static const String watch1 = "assets/images/products/watch-1.png";
 }
