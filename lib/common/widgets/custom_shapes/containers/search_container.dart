@@ -42,7 +42,7 @@ class FSearchContainer extends StatelessWidget {
           ),
           child: Row(
             children: [
-              Icon(icon, color: FColors.darkergrey),
+              Icon(icon, color: dark ? FColors.light : FColors.darkergrey),
               const SizedBox(width: FSizes.defaultBtwItems),
               Text(text, style: Theme.of(context).textTheme.bodySmall),
             ],
