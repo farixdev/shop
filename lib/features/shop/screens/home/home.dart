@@ -1,14 +1,18 @@
+
 import 'package:flutter/material.dart';
+
 
 import 'package:shop/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:shop/common/widgets/custom_shapes/containers/search_container.dart';
-import 'package:shop/common/widgets/images/rounded-image.dart';
+
 
 import 'package:shop/common/widgets/texts/section_heading.dart';
 import 'package:shop/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:shop/features/shop/screens/home/widgets/home_categories.dart';
+import 'package:shop/features/shop/screens/home/widgets/promo_slider.dart';
 import 'package:shop/utils/constants/colors.dart';
 import 'package:shop/utils/constants/image_strings.dart';
+
 
 import 'package:shop/utils/constants/sizes.dart';
 
@@ -52,9 +56,11 @@ class HomeScreen extends StatelessWidget {
             ),
 
             //body
-            Padding( 
+
+            //carousel
+            Padding(
               padding: EdgeInsets.all(FSizes.md),
-              child: FRoundedImage(imageUrl: FImages.watchBanner, ),
+              child: FPromoSlider(banners: [FImages.watchBanner , FImages.shoeBanner , FImages.clothBanner],),
             ),
           ],
         ),
