@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop/utils/constants/colors.dart';
 
-
 class FCircularContainer extends StatelessWidget {
   const FCircularContainer({
     super.key,
@@ -11,12 +10,14 @@ class FCircularContainer extends StatelessWidget {
     this.padding = 0,
     this.child,
     this.backgroundColor = FColors.white,
+    this.margin,
   });
 
   final double? width;
   final double? height;
   final double radius;
   final double padding;
+  final EdgeInsets? margin;
   final Widget? child;
   final Color backgroundColor;
 
@@ -26,6 +27,7 @@ class FCircularContainer extends StatelessWidget {
       width: width,
       height: height,
       padding: EdgeInsets.all(padding),
+      margin: margin,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(radius),
         // ignore: deprecated_member_use
