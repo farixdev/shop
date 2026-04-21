@@ -82,6 +82,7 @@ class HomeScreen extends StatelessWidget {
                       FImages.clothBanner,
                     ],
                   ),
+                  const SizedBox(height: FSizes.defaultBtwSections),
 
                   //POPULAR PRODUCTS
                   FProductCardVertical(),
