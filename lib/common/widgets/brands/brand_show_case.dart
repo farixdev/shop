@@ -30,6 +30,7 @@ class FBrandShowcase extends StatelessWidget {
         children: [
           //Brand with product Count
           const FBrandCard(showBorder: false , productCount: '250' ,),
+          const SizedBox(height: FSizes.defaultBtwItems),
 
           //Brand top 3 profuct images
           Row(
