@@ -5,7 +5,7 @@ import 'package:shop/utils/constants/sizes.dart';
 class FProfileMenu extends StatelessWidget {
   const FProfileMenu({
     super.key,
-    this.icon = Iconsax.align_right,
+    this.icon = Iconsax.arrow_right_3,
     required this.onPressed,
     required this.title,
     required this.value,
