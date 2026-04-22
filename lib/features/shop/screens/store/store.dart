@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:shop/common/widgets/appbar/appbar.dart';
+import 'package:shop/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:shop/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:shop/common/widgets/products/cart/cart_menu_icon.dart';
+import 'package:shop/common/widgets/texts/section_heading.dart';
 import 'package:shop/utils/constants/colors.dart';
+import 'package:shop/utils/constants/image_strings.dart';
 import 'package:shop/utils/constants/sizes.dart';
 import 'package:shop/utils/helpers/helper_functions.dart';
 
@@ -34,9 +37,47 @@ class StoreScreen extends StatelessWidget {
                   physics: const NeverScrollableScrollPhysics(),
                   children: [
                     //--Search Bar--//
-                    SizedBox(height: FSizes.defaultBtwItems),
-                    FSearchContainer(text: "Search in Store ", showBorder: true, showBackground: false, padding: EdgeInsets.zero),
-                    SizedBox(height: FSizes.defaultBtwSections),
+                    const SizedBox(height: FSizes.defaultBtwItems),
+                    FSearchContainer(
+                      text: "Search in Store ",
+                      showBorder: true,
+                      showBackground: false,
+                      padding: EdgeInsets.zero,
+                    ),
+
+                    const SizedBox(height: FSizes.defaultBtwSections),
+
+                    //feature Brand
+                    FSectionHeading(
+                      title: 'Feature Brand',
+                      showActionButton: true,
+                      onPressed: () {},
+                    ),
+                    const SizedBox(height: FSizes.defaultBtwItems / 1.5),
+
+                    FRoundedContainer(
+                      padding: const EdgeInsets.all(FSizes.sm),
+                      showBorder: true,
+                      backgroundColor: Colors.transparent,
+                      child: Row(
+                        children: [
+                          ///-Icon
+                          Container(
+                            width: 56,
+                            height: 56,
+                            padding: const EdgeInsets.all(FSizes.sm),
+                            decoration: BoxDecoration(
+                              color: dark ? FColors.black : FColors.white,
+                              borderRadius: BorderRadius.circular(100),
+                            ),
+                            child: Image(
+                              image: AssetImage(FImages.phoneIcon),
+                              color: dark ? FColors.black : FColors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
