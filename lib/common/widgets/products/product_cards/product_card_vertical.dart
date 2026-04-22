@@ -5,7 +5,7 @@ import 'package:shop/common/styles/shadows.dart';
 
 import 'package:shop/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:shop/common/widgets/icons/f-circular-icon.dart';
-import 'package:shop/common/widgets/images/rounded-image.dart';
+import 'package:shop/common/widgets/images/rounded_image.dart';
 import 'package:shop/common/widgets/products/product_price_text.dart';
 import 'package:shop/common/widgets/texts/product_title_text.dart';
 import 'package:shop/utils/constants/colors.dart';
