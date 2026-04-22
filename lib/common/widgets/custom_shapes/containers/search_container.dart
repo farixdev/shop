@@ -6,19 +6,21 @@ import 'package:shop/utils/device/device_utility.dart';
 import 'package:shop/utils/helpers/helper_functions.dart';
 
 class FSearchContainer extends StatelessWidget {
-  const  FSearchContainer({
+  const FSearchContainer({
     super.key,
     required this.text,
     this.icon = Iconsax.search_normal,
     this.showBackground = true,
     this.showBorder = true,
     this.ontap,
+    this.padding = const EdgeInsets.symmetric(horizontal: FSizes.defaultSpace),
   });
 
   final String text;
   final IconData? icon;
   final bool showBackground, showBorder;
   final VoidCallback? ontap;
+  final EdgeInsetsGeometry padding;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,7 @@ class FSearchContainer extends StatelessWidget {
     return GestureDetector(
       onTap: ontap,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: FSizes.defaultSpace),
+        padding: padding,
         child: Container(
           width: FDeviceUtility.getScreenWidth(context),
           padding: EdgeInsets.all(FSizes.md),
