@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:shop/common/widgets/appbar/appbar.dart';
+import 'package:shop/common/widgets/products/cart/cart_menu_icon.dart';
 
 
-class Store extends StatelessWidget {
-  const Store({super.key});
+class StoreScreen extends StatelessWidget {
+  const StoreScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: FAppBar(
+        title: Text('Store'),
+        actions: [
+          FCartCounterIcon(onPressed: (){})
+        ],
+      ),
+    );
   }
 }
