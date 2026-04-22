@@ -23,7 +23,7 @@ class ProductDetailScreen extends StatelessWidget {
                   child: Stack(
                     children: [
                         //Main Large Image
-                        Image(image: AssetImage(FImages.watch1)),
+                        SizedBox(child: Image(image: AssetImage(FImages.watch1))),
                     ],
                   ),
                 ),
