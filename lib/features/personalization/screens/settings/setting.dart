@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import 'package:shop/common/widgets/appbar/appbar.dart';
@@ -36,7 +37,7 @@ class SettingScreen extends StatelessWidget {
 
                   //User Profile Card
                   FUserProfileTile(),
-                  const SizedBox(height: FSizes.defaultBtwSections,)
+                  const SizedBox(height: FSizes.defaultBtwSections),
                 ],
               ),
             ),
@@ -48,17 +49,94 @@ class SettingScreen extends StatelessWidget {
                 children: [
                   // --Account Setting
                   FSectionHeading(title: 'Account Setting'),
-                  const SizedBox(height: FSizes.defaultBtwItems,),
-                  SettingMenuTile(icon: Iconsax.safe_home, title: 'My Address', subTitle: 'Set shopping delivery address', onTap:  (){}),
+                  const SizedBox(height: FSizes.defaultBtwItems),
 
+                  SettingMenuTile(
+                    icon: Iconsax.safe_home,
+                    title: 'My Address',
+                    subTitle: 'Set shopping delivery address',
+                    onTap: () {},
+                  ),
+                  SettingMenuTile(
+                    icon: Iconsax.shopping_cart,
+                    title: 'My Cart',
+                    subTitle: 'Add, Remove Product and move to checkout',
+                    onTap: () {},
+                  ),
+                  SettingMenuTile(
+                    icon: Iconsax.bag_tick,
+                    title: 'My Order',
+                    subTitle: 'Check your order and order details',
+                    onTap: () {},
+                  ),
+                  SettingMenuTile(
+                    icon: Iconsax.bank,
+                    title: 'Bank Acoount',
+                    subTitle: 'Withdraw balance to registered bank account',
+                    onTap: () {},
+                  ),
+                  SettingMenuTile(
+                    icon: Iconsax.discount_shape,
+                    title: 'My Coupons',
+                    subTitle: 'List of all the discounted coupons',
+                    onTap: () {},
+                  ),
+                  SettingMenuTile(
+                    icon: Iconsax.notification,
+                    title: 'Notification',
+                    subTitle: 'Set any kind of notification message',
+                    onTap: () {},
+                  ),
+                  SettingMenuTile(
+                    icon: Iconsax.security_card,
+                    title: 'Account Privacy',
+                    subTitle: 'Manage data usage and connected accounts',
+                    onTap: () {},
+                  ),
+
+                  //--App Setings
+                  SizedBox(height: FSizes.defaultBtwSections),
+                  FSectionHeading(title: 'App Settings'),
+                  SettingMenuTile(
+                    icon: Iconsax.document_upload,
+                    title: 'Load Data',
+                    subTitle: 'Upload data to your cloud firebase ',
+                  ),
+
+                  SettingMenuTile(
+                    icon: Iconsax.location,
+                    title: 'Geolocation',
+                    subTitle: 'Set recomendation based on your location',
+                    trailing:  Switch(value : true, onChanged: (value){}),
+                  ),
+
+                  SettingMenuTile(
+                    icon: Iconsax.security_user,
+                    title: 'Safe Mode',
+                    subTitle: 'Search resultis safe for all ages',
+                    trailing:  Switch(value : false, onChanged: (value){}),
+                  ),
+
+                  SettingMenuTile(
+                    icon: Iconsax.image,
+                    title: 'HD Image Quality',
+                    subTitle: 'Set image quality to be seen',
+                    trailing:  Switch(value : false, onChanged: (value){}),
+                  ),
+
+                  //logout button
+                  const SizedBox(height: FSizes.defaultBtwSections),
+                  SizedBox(
+                    width: double.infinity,
+                    child: OutlinedButton(onPressed: (){}, child: const Text('Logout')),
+                  ),
+                  const SizedBox(height: FSizes.defaultBtwSections * 2.5),
                 ],
               ),
-              
-              )
+            ),
           ],
         ),
       ),
     );
   }
 }
-
