@@ -6,7 +6,9 @@ import 'package:shop/common/styles/shadows.dart';
 import 'package:shop/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:shop/common/widgets/icons/f-circular-icon.dart';
 import 'package:shop/common/widgets/images/rounded_image.dart';
-import 'package:shop/common/widgets/products/product_price_text.dart';
+
+import 'package:shop/common/widgets/texts/brand_title_with_verified_icon.dart';
+import 'package:shop/common/widgets/texts/product_price_text.dart';
 import 'package:shop/common/widgets/texts/product_title_text.dart';
 import 'package:shop/utils/constants/colors.dart';
 import 'package:shop/utils/constants/image_strings.dart';
@@ -90,22 +92,7 @@ class FProductCardVertical extends StatelessWidget {
                 children: [
                   FProductTitleText(title: 'T-Shirt Black', smallSize: true),
                   SizedBox(height: FSizes.defaultBtwItems / 2),
-                  Row(
-                    children: [
-                      Text(
-                        'Brand',
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
-                        style: Theme.of(context).textTheme.labelMedium,
-                      ),
-                      SizedBox(width: FSizes.xs),
-                      Icon(
-                        Iconsax.verify,
-                        color: FColors.primaryColor,
-                        size: FSizes.iconXs,
-                      ),
-                    ],
-                  ),
+                  FBrandTitleTextWithVerifiedIcon(title: 'Nike', textAlign: TextAlign.left,)
                 ],
               ),
             ),
@@ -149,3 +136,4 @@ class FProductCardVertical extends StatelessWidget {
     );
   }
 }
+
