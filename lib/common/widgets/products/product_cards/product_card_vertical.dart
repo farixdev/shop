@@ -50,6 +50,7 @@ class FProductCardVertical extends StatelessWidget {
                   //Sale Tag
                   Positioned(
                     top: 12,
+                    left: 6,
                     child: FRoundedContainer(
                       radius: FSizes.sm,
                       // ignore: deprecated_member_use
@@ -105,36 +106,42 @@ class FProductCardVertical extends StatelessWidget {
                       ),
                     ],
                   ),
-
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      FProductPriceText(price: '600'),
-
-                      Container(
-                        decoration: BoxDecoration(
-                          color: FColors.dark,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(FSizes.cardRadiusMd),
-                            bottomRight: Radius.circular(
-                              FSizes.productImageRadius,
-                            ),
-                          ),
-                        ),
-
-                        child: SizedBox(
-                          width: FSizes.iconLg * 1.2,
-                          height: FSizes.iconLg * 1.2,
-
-                          child: Center(
-                            child: Icon(Iconsax.add, color: FColors.white),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
                 ],
               ),
+            ),
+
+            Spacer(),
+
+            //price Row
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                //price
+                Padding(
+                  padding: EdgeInsetsGeometry.only(left: FSizes.sm),
+                  child: FProductPriceText(price: '600'),
+                  ),
+
+                //Add to cart button
+                Container(
+                  decoration: BoxDecoration(
+                    color: FColors.dark,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(FSizes.cardRadiusMd),
+                      bottomRight: Radius.circular(FSizes.productImageRadius),
+                    ),
+                  ),
+
+                  child: SizedBox(
+                    width: FSizes.iconLg * 1.2,
+                    height: FSizes.iconLg * 1.2,
+
+                    child: Center(
+                      child: Icon(Iconsax.add_circle, color: FColors.white),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
