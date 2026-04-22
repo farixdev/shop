@@ -5,7 +5,6 @@ import 'package:shop/common/widgets/appbar/appbar.dart';
 import 'package:shop/common/widgets/appbar/tabbar.dart';
 import 'package:shop/common/widgets/brands/brand_card.dart';
 
-
 import 'package:shop/common/widgets/custom_shapes/containers/search_container.dart';
 
 import 'package:shop/common/widgets/layouts/grid_layout.dart';
@@ -14,7 +13,6 @@ import 'package:shop/common/widgets/products/cart/cart_menu_icon.dart';
 import 'package:shop/common/widgets/texts/section_heading.dart';
 import 'package:shop/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:shop/utils/constants/colors.dart';
-
 
 import 'package:shop/utils/constants/sizes.dart';
 import 'package:shop/utils/helpers/helper_functions.dart';
@@ -99,11 +97,11 @@ class StoreScreen extends StatelessWidget {
           },
           body: TabBarView(
             children: [
-             FCategoryTab(),
-             FCategoryTab(),
-             FCategoryTab(),
-             FCategoryTab(),
-             FCategoryTab(),
+              FCategoryTab(),
+              FCategoryTab(),
+              FCategoryTab(),
+              FCategoryTab(),
+              FCategoryTab(),
             ],
           ),
         ),
