@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:shop/common/widgets/appbar/appbar.dart';
-import 'package:shop/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:shop/common/widgets/brand_card/brand_card.dart';
+
 import 'package:shop/common/widgets/custom_shapes/containers/search_container.dart';
-import 'package:shop/common/widgets/images/circular_image.dart';
+
+import 'package:shop/common/widgets/layouts/grid_layout.dart';
 import 'package:shop/common/widgets/products/cart/cart_menu_icon.dart';
+
 import 'package:shop/common/widgets/texts/section_heading.dart';
 import 'package:shop/utils/constants/colors.dart';
-import 'package:shop/utils/constants/image_strings.dart';
 
 import 'package:shop/utils/constants/sizes.dart';
 import 'package:shop/utils/helpers/helper_functions.dart';
@@ -57,24 +59,29 @@ class StoreScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: FSizes.defaultBtwItems / 1.5),
 
-                    FRoundedContainer(
-                      padding: const EdgeInsets.all(FSizes.sm),
-                      showBorder: true,
-                      backgroundColor: Colors.transparent,
-                      child: Row(
-                        children: [
-                          ///-Icon
-                          FCircularImage(
-                            image: FImages.phoneIcon,
-                            backgroundColor: Colors.transparent,
-                            overlayColor: dark ? FColors.white : FColors.black,
-                            ),
-                        ],
-                      ),
+                    FGridLayout(
+                      itemCount: 4,
+                      mainAxisExtent: 80,
+                      itemBuilder: (_, index) {
+                        return FBrandCard(showBorder: false);
+                      },
                     ),
                   ],
                 ),
               ),
+
+              //Tabs
+              bottom: TabBar(
+                isScrollable: true,
+                indicatorColor: FColors.primaryColor,
+                tabs: [
+                  Tab(child: Text('Sports')),
+                  Tab(child: Text('Electronics')),
+                  Tab(child: Text('Fashion')),
+                  Tab(child: Text('Furniture')),
+                  Tab(child: Text('Beauty')),
+                  ]
+                  ),
             ),
           ];
         },
@@ -83,4 +90,3 @@ class StoreScreen extends StatelessWidget {
     );
   }
 }
-
