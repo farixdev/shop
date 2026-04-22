@@ -52,7 +52,7 @@ class FBrandCard extends StatelessWidget {
                     brandTextSize: TextSizes.large,
                   ),
                   Text(
-                    productCount,
+                    '$productCount Products',
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.labelMedium,
                   ),
