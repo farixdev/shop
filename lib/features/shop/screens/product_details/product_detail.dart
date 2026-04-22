@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
+import 'package:shop/common/widgets/appbar/appbar.dart';
 
 import 'package:shop/common/widgets/custom_shapes/curved_edges/curved_edges_widget.dart';
+import 'package:shop/common/widgets/icons/f-circular-icon.dart';
 import 'package:shop/common/widgets/images/rounded_image.dart';
 import 'package:shop/utils/constants/colors.dart';
 import 'package:shop/utils/constants/image_strings.dart';
@@ -35,18 +38,38 @@ class ProductDetailScreen extends StatelessWidget {
                     ),
 
                     ///Image Slider
-                    ListView.separated(
-                      separatorBuilder: (_, __) =>
-                          const SizedBox(width: FSizes.defaultBtwItems),
-                      itemCount: 4,
-                      itemBuilder: (_, index) => FRoundedImage(
-                        width: 80,
-                        backgroundColor: dark ? FColors.dark : FColors.white,
-                        border: Border.all(color: FColors.primaryColor),
-                        padding: const EdgeInsets.all(FSizes.sm),
-                        imageUrl: FImages.tshirt1,
+                    Positioned(
+                      right: 0,
+                      bottom: 30,
+                      left: FSizes.defaultSpace,
+                      child: SizedBox(
+                        height: 80,
+                        child: ListView.separated(
+                          separatorBuilder: (_, __) =>
+                              const SizedBox(width: FSizes.defaultBtwItems),
+                          itemCount: 4,
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          physics: const AlwaysScrollableScrollPhysics(),
+                          itemBuilder: (_, index) => FRoundedImage(
+                            width: 80,
+                            backgroundColor: dark
+                                ? FColors.dark
+                                : FColors.white,
+                            border: Border.all(color: FColors.primaryColor),
+                            padding: const EdgeInsets.all(FSizes.sm),
+                            imageUrl: FImages.tshirt1,
+                          ),
+                        ),
                       ),
                     ),
+                    //AppBar ICon
+                    FAppBar(
+                      showBackArrow: true,
+                      actions: [
+                        FCircularIcon(icon: Iconsax.heart, color: Colors.red  ,)
+                      ],
+                    )
                   ],
                 ),
               ),
