@@ -44,9 +44,10 @@ class ProfileScreen extends StatelessWidget {
               const Divider(),
               const SizedBox(height: FSizes.defaultBtwItems),
 
+              //Heading profile Info
               FSectionHeading(title: 'Profile Information' , ),
               const SizedBox(height: FSizes.defaultBtwItems),
-
+              
               FProfileMenu(onPressed: () {  }, title: 'Name', value: 'Faris Ahmad',)
             ],
           ),
