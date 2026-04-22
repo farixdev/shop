@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:shop/common/widgets/appbar/appbar.dart';
 import 'package:shop/common/widgets/products/cart/cart_menu_icon.dart';
 
-
 class StoreScreen extends StatelessWidget {
   const StoreScreen({super.key});
 
@@ -10,10 +9,18 @@ class StoreScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: FAppBar(
-        title: Text('Store'),
-        actions: [
-          FCartCounterIcon(onPressed: (){})
-        ],
+        title: Text('Store', style: Theme.of(context).textTheme.headlineMedium),
+        actions: [FCartCounterIcon(onPressed: () {})],
+      ),
+      body: NestedScrollView(
+        headerSliverBuilder: (_, innerboxIsScrolled) {
+          return[
+              SliverAppBar(
+                
+              ),
+            ];
+        },
+        body: Container(),
       ),
     );
   }
