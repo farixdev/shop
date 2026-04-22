@@ -32,6 +32,7 @@ class FProductMetaData extends StatelessWidget {
                         ).textTheme.labelLarge!.apply(color: FColors.black),
                       ),
                     ),
+                    const SizedBox(width: FSizes.defaultBtwItems,)
             //Price
           ],
         )
