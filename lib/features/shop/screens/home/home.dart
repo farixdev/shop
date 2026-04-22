@@ -62,12 +62,16 @@ class HomeScreen extends StatelessWidget {
                             {'title': 'Shoes', 'image': FImages.womenShoesIcon},
                           ],
                         ),
+                        const SizedBox(height: FSizes.defaultBtwSections),
+                        const SizedBox(height: FSizes.defaultBtwItems),
                       ],
                     ),
                   ),
                 ],
               ),
             ),
+
+            
 
             //body
 
