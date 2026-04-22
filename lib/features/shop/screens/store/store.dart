@@ -35,9 +35,7 @@ class StoreScreen extends StatelessWidget {
                   children: [
                     //--Search Bar--//
                     SizedBox(height: FSizes.defaultBtwItems),
-                    FSearchContainer(
-                      text: "Search in Store ", showBorder: true, showBackground: false, padding: EdgeInsets.zero,
-                    ),
+                    FSearchContainer(text: "Search in Store ", showBorder: true, showBackground: false, padding: EdgeInsets.zero),
                     SizedBox(height: FSizes.defaultBtwSections),
                   ],
                 ),
