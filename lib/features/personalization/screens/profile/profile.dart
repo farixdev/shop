@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import 'package:shop/common/widgets/appbar/appbar.dart';
 import 'package:shop/common/widgets/images/circular_image.dart';
@@ -59,11 +60,19 @@ class ProfileScreen extends StatelessWidget {
               FSectionHeading(title: 'Personal Information' , ),
               const SizedBox(height: FSizes.defaultBtwItems),
 
-              FProfileMenu(onPressed: () {  }, title: 'User ID', value: '45689',),
+              FProfileMenu(onPressed: () {  }, title: 'User ID', value: '45689', icon: Iconsax.copy_copy,),
               FProfileMenu(onPressed: () {  }, title: 'E-mail', value: 'faris@gmail.com',),
               FProfileMenu(onPressed: () {  }, title: 'Phone Number', value: '+92-327-0944766',),
               FProfileMenu(onPressed: () {  }, title: 'Gender', value: 'Male',),
               FProfileMenu(onPressed: () {  }, title: 'Date of Birth', value: '17 Mar 2005',),
+              const Divider(),
+              const SizedBox(height: FSizes.defaultBtwItems),
+
+              Center(
+                child: TextButton(onPressed: (){}
+                , child: Text('Close Account' ,style: TextStyle( color: Colors.red),)),
+              )
+
 
 
 
