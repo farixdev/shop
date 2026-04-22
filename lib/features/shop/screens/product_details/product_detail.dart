@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 
 
 import 'package:shop/features/shop/screens/product_details/widgets/product_detail_image_slider.dart';
+import 'package:shop/features/shop/screens/product_details/widgets/rating_share_widget.dart';
 import 'package:shop/utils/constants/sizes.dart';
 
 
@@ -26,29 +26,7 @@ class ProductDetailScreen extends StatelessWidget {
               child: Column(
                 children: [
                   ///Rating & Share
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      ///Rating
-                      Row(
-
-                        children: [
-                          Icon(Iconsax.star, color: Colors.amber, size: 24),
-                          SizedBox(width: FSizes.defaultBtwItems /2 ),
-                          Text.rich(
-                            TextSpan(
-                              children: [
-                                TextSpan(text: '5.0' , style: Theme.of(context).textTheme.bodyLarge,),
-                                const TextSpan(text: '(199)')
-                              ]
-                            )
-                          )
-                        ],
-                      ),
-                      ///share button
-                      IconButton(onPressed: (){}, icon: const Icon(Icons.share, size:  FSizes.iconMd))
-                    ],
-                  )
+                  FRatingAndShare()
                   ///Price, Title,Stock & Brand
                   ///Attributes
                   ///Checkout Button
