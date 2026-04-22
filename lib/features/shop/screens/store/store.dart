@@ -19,29 +19,34 @@ class StoreScreen extends StatelessWidget {
       ),
       body: NestedScrollView(
         headerSliverBuilder: (_, innerboxIsScrolled) {
-          return[
-              SliverAppBar(
-                automaticallyImplyLeading: false,
-                pinned: true,
-                floating: true,
-                backgroundColor: dark? FColors.black : FColors.white,
-                expandedHeight: 440,
-                
-                flexibleSpace: Padding(
-                  padding: EdgeInsets.all(FSizes.defaultSpace),
-                  child: ListView(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    children: [
-                      //--Search Bar--//
-                      SizedBox(height: FSizes.defaultBtwItems),
-                      FSearchContainer(text: "Search in Store " , showBorder: true , showBackground: false, padding: EdgeInsets.zero,),
-                      SizedBox(height: FSizes.defaultBtwSections),
-                    ],
-                  ),
-                  ),
+          return [
+            SliverAppBar(
+              automaticallyImplyLeading: false,
+              pinned: true,
+              floating: true,
+              backgroundColor: dark ? FColors.black : FColors.white,
+              expandedHeight: 440,
+
+              flexibleSpace: Padding(
+                padding: EdgeInsets.all(FSizes.defaultSpace),
+                child: ListView(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  children: [
+                    //--Search Bar--//
+                    SizedBox(height: FSizes.defaultBtwItems),
+                    FSearchContainer(
+                      text: "Search in Store ",
+                      showBorder: true,
+                      showBackground: false,
+                      padding: EdgeInsets.zero,
+                    ),
+                    SizedBox(height: FSizes.defaultBtwSections),
+                  ],
+                ),
               ),
-            ];
+            ),
+          ];
         },
         body: Container(),
       ),
