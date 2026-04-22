@@ -49,8 +49,8 @@ class SettingScreen extends StatelessWidget {
                   // --Account Setting
                   FSectionHeading(title: 'Account Setting'),
                   const SizedBox(height: FSizes.defaultBtwItems,),
-                  SettingMenuTile(icon: Iconsax.safe_home, title: 'My Address', subTitle: 'Set shopping delivery address',),
-                  
+                  SettingMenuTile(icon: Iconsax.safe_home, title: 'My Address', subTitle: 'Set shopping delivery address', onTap:  (){}),
+
                 ],
               ),
               
