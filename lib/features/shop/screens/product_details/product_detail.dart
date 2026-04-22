@@ -27,9 +27,11 @@ class ProductDetailScreen extends StatelessWidget {
                 children: [
                   ///Rating & Share
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       ///Rating
                       Row(
+
                         children: [
                           Icon(Iconsax.star, color: Colors.amber, size: 24),
                           SizedBox(width: FSizes.defaultBtwItems /2 ),
@@ -42,8 +44,9 @@ class ProductDetailScreen extends StatelessWidget {
                             )
                           )
                         ],
-                      )
+                      ),
                       ///share button
+                      IconButton(onPressed: (){}, icon: const Icon(Icons.share, size:  FSizes.iconMd))
                     ],
                   )
                   ///Price, Title,Stock & Brand
