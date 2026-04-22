@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 
 import 'package:shop/features/shop/screens/product_details/widgets/product_detail_image_slider.dart';
+import 'package:shop/features/shop/screens/product_details/widgets/product_meta_data.dart';
 import 'package:shop/features/shop/screens/product_details/widgets/rating_share_widget.dart';
 import 'package:shop/utils/constants/sizes.dart';
 
@@ -26,8 +27,9 @@ class ProductDetailScreen extends StatelessWidget {
               child: Column(
                 children: [
                   ///Rating & Share
-                  FRatingAndShare()
+                  FRatingAndShare(),
                   ///Price, Title,Stock & Brand
+                  FProductMetaData()
                   ///Attributes
                   ///Checkout Button
                   ///Description
