@@ -85,6 +85,10 @@ class HomeScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: FSizes.defaultBtwSections),
 
+                  //heading
+                  FSectionHeading(title: 'Popular Products', onPressed: (){} , showActionButton: true),
+                  const SizedBox(height: FSizes.defaultBtwItems),
+
                   //POPULAR PRODUCTS
                   FGridLayout(itemCount: 4, itemBuilder: (_, index) => FProductCardVertical(),)
                   ,
