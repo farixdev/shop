@@ -3,23 +3,25 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:flutter/material.dart';
 
 import 'package:shop/utils/constants/colors.dart';
-
-
-
+import 'package:shop/utils/helpers/helper_functions.dart';
 
 class FCartCounterIcon extends StatelessWidget {
-  const FCartCounterIcon({super.key, required this.onPressed, required this.iconColor});
+  const FCartCounterIcon({super.key, required this.onPressed, this.iconColor});
 
   final VoidCallback onPressed;
-  final Color iconColor;
+  final Color? iconColor;
 
   @override
   Widget build(BuildContext context) {
+    final dark = FHelperFunctions.isDarkMode(context);
     return Stack(
       children: [
         IconButton(
-          onPressed:onPressed,
-          icon: Icon(Iconsax.shopping_bag, color: iconColor ),
+          onPressed: onPressed,
+          icon: Icon(
+            Iconsax.shopping_bag,
+            color: iconColor ?? (dark ? FColors.white : FColors.dark),
+          ),
         ),
         Positioned(
           right: 0,
