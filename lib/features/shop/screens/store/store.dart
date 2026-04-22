@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'package:shop/common/widgets/appbar/appbar.dart';
-import 'package:shop/common/widgets/brand_card/brand_card.dart';
+
+import 'package:shop/common/widgets/appbar/tabbar.dart';
+import 'package:shop/common/widgets/brands/brand_card.dart';
+
 
 import 'package:shop/common/widgets/custom_shapes/containers/search_container.dart';
 
@@ -8,7 +12,9 @@ import 'package:shop/common/widgets/layouts/grid_layout.dart';
 import 'package:shop/common/widgets/products/cart/cart_menu_icon.dart';
 
 import 'package:shop/common/widgets/texts/section_heading.dart';
+import 'package:shop/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:shop/utils/constants/colors.dart';
+
 
 import 'package:shop/utils/constants/sizes.dart';
 import 'package:shop/utils/helpers/helper_functions.dart';
@@ -68,7 +74,10 @@ class StoreScreen extends StatelessWidget {
                         itemCount: 4,
                         mainAxisExtent: 80,
                         itemBuilder: (_, index) {
-                          return FBrandCard(showBorder: false);
+                          return FBrandCard(
+                            showBorder: false,
+                            productCount: '250',
+                          );
                         },
                       ),
                     ],
@@ -76,24 +85,27 @@ class StoreScreen extends StatelessWidget {
                 ),
 
                 //Tabs
-                bottom: TabBar(
-                  isScrollable: true,
-                  indicatorColor: FColors.primaryColor,
-                  unselectedLabelColor: FColors.darkgrey,
-                  labelColor: dark ? FColors.white : FColors.primaryColor,
-
+                bottom: FTabBar(
                   tabs: [
                     Tab(child: Text('Sports')),
-                    Tab(child: Text('Electronics')),
-                    Tab(child: Text('Fashion')),
                     Tab(child: Text('Furniture')),
-                    Tab(child: Text('Beauty')),
+                    Tab(child: Text('Electronics')),
+                    Tab(child: Text('Clothes')),
+                    Tab(child: Text('Cosmetics')),
                   ],
                 ),
               ),
             ];
           },
-          body: Container(),
+          body: TabBarView(
+            children: [
+             FCategoryTab(),
+             FCategoryTab(),
+             FCategoryTab(),
+             FCategoryTab(),
+             FCategoryTab(),
+            ],
+          ),
         ),
       ),
     );
