@@ -6,7 +6,7 @@ import 'package:shop/utils/constants/sizes.dart';
 import 'package:shop/utils/helpers/helper_functions.dart';
 
 class FVerticalImageText extends StatelessWidget {
-  const FVerticalImageText({
+  const  FVerticalImageText({
     super.key,
     required this.image,
     required this.title,
