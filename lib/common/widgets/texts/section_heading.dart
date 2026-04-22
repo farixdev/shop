@@ -1,15 +1,10 @@
-
-
-
-
-
 import 'package:flutter/material.dart';
 
 class FSectionHeading extends StatelessWidget {
   const FSectionHeading({
     super.key,
     this.textColor,
-    this.showActionButton = false ,
+    this.showActionButton = false,
     required this.title,
     this.buttonTitle = 'View All',
     this.onPressed,
@@ -23,6 +18,7 @@ class FSectionHeading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
           title,
