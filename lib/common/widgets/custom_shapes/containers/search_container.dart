@@ -6,7 +6,7 @@ import 'package:shop/utils/device/device_utility.dart';
 import 'package:shop/utils/helpers/helper_functions.dart';
 
 class FSearchContainer extends StatelessWidget {
-  const FSearchContainer({
+  const  FSearchContainer({
     super.key,
     required this.text,
     this.icon = Iconsax.search_normal,
@@ -42,7 +42,7 @@ class FSearchContainer extends StatelessWidget {
           ),
           child: Row(
             children: [
-              Icon(icon, color: dark ? FColors.light : FColors.darkergrey),
+              Icon(icon, color: dark ? FColors.darkergrey : FColors.grey),
               const SizedBox(width: FSizes.defaultBtwItems),
               Text(text, style: Theme.of(context).textTheme.bodySmall),
             ],
