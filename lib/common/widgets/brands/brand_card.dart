@@ -13,9 +13,11 @@ import 'package:shop/utils/constants/sizes.dart';
 import 'package:shop/utils/helpers/helper_functions.dart';
 
 class FBrandCard extends StatelessWidget {
-  const FBrandCard({super.key, this.showBorder = true});
+  const FBrandCard({super.key, this.showBorder = true, this.productCount = '0', this.brandName = 'Nike',});
 
   final bool showBorder;
+  final String productCount;
+  final String brandName;
 
   @override
   Widget build(BuildContext context) {
@@ -46,11 +48,11 @@ class FBrandCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   FBrandTitleTextWithVerifiedIcon(
-                    title: 'Nike',
+                    title:  brandName,
                     brandTextSize: TextSizes.large,
                   ),
                   Text(
-                    '256 products',
+                    productCount,
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.labelMedium,
                   ),
