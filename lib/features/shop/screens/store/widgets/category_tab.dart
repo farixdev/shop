@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop/common/widgets/brands/brand_show_case.dart';
+import 'package:shop/common/widgets/texts/section_heading.dart';
 import 'package:shop/utils/constants/image_strings.dart';
 import 'package:shop/utils/constants/sizes.dart';
 
@@ -22,7 +23,9 @@ class FCategoryTab extends StatelessWidget {
                       ],
                     ),
 
-                    ///--Products
+                    ///--Products{You Might Like}
+                    FSectionHeading(title: 'You Might Like' , showActionButton: true, onPressed: (){}),
+                    const SizedBox(height: FSizes.defaultBtwItems,)
                     
                   ],
                 ),
