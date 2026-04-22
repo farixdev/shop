@@ -64,7 +64,11 @@ class StoreScreen extends StatelessWidget {
                       child: Row(
                         children: [
                           ///-Icon
-                          FCircularImage(image: FImages.phoneIcon,),
+                          FCircularImage(
+                            image: FImages.phoneIcon,
+                            backgroundColor: Colors.transparent,
+                            overlayColor: dark ? FColors.white : FColors.black,
+                            ),
                         ],
                       ),
                     ),
