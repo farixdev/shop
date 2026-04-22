@@ -11,12 +11,14 @@ import 'package:shop/common/widgets/texts/section_heading.dart';
 import 'package:shop/utils/constants/colors.dart';
 
 import 'package:shop/utils/constants/sizes.dart';
+import 'package:shop/utils/helpers/helper_functions.dart';
 
 class SettingScreen extends StatelessWidget {
   const SettingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final dark = FHelperFunctions.isDarkMode(context);
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -107,28 +109,41 @@ class SettingScreen extends StatelessWidget {
                     icon: Iconsax.location,
                     title: 'Geolocation',
                     subTitle: 'Set recomendation based on your location',
-                    trailing:  Switch(value : true, onChanged: (value){}),
+                    trailing: Switch(value: true, onChanged: (value) {}),
                   ),
 
                   SettingMenuTile(
                     icon: Iconsax.security_user,
                     title: 'Safe Mode',
                     subTitle: 'Search resultis safe for all ages',
-                    trailing:  Switch(value : false, onChanged: (value){}),
+                    trailing: Switch(value: false, onChanged: (value) {}),
                   ),
 
                   SettingMenuTile(
                     icon: Iconsax.image,
                     title: 'HD Image Quality',
                     subTitle: 'Set image quality to be seen',
-                    trailing:  Switch(value : false, onChanged: (value){}),
+                    trailing: Switch(value: false, onChanged: (value) {}),
                   ),
 
                   //logout button
                   const SizedBox(height: FSizes.defaultBtwSections),
                   SizedBox(
                     width: double.infinity,
-                    child: OutlinedButton(onPressed: (){}, child: const Text('Logout')),
+                    child: OutlinedButton(
+                      onPressed: () {},
+                      style: OutlinedButton.styleFrom(
+                        side: BorderSide(
+                          color: dark ? FColors.white : FColors.primaryColor,
+                        ),
+                      ),
+                      child: Text(
+                        'Logout',
+                        style: Theme.of(context).textTheme.bodyMedium!.apply(
+                          color: dark ? FColors.white : FColors.dark,
+                        ),
+                      ),
+                    ),
                   ),
                   const SizedBox(height: FSizes.defaultBtwSections * 2.5),
                 ],
