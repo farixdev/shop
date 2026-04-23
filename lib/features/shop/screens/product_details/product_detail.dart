@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop/features/shop/screens/product_details/widgets/product_attributes.dart';
 
 
 
@@ -29,8 +30,9 @@ class ProductDetailScreen extends StatelessWidget {
                   ///Rating & Share
                   FRatingAndShare(), 
                   ///Price, Title,Stock & Brand
-                  FProductMetaData()
+                  FProductMetaData(),
                   ///Attributes
+                  ProductAttributes()
                   ///Checkout Button
                   ///Description
                   ///Reviews
