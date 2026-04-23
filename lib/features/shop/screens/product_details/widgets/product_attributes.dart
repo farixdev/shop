@@ -17,6 +17,8 @@ class ProductAttributes extends StatelessWidget {
       children: [
         /// -Selected Attribute Pricing   & Description
         FRoundedContainer(
+
+        
           padding: EdgeInsets.all(FSizes.md),
           backgroundColor: dark ? FColors.darkergrey : FColors.grey,
           child: Column(
@@ -71,7 +73,15 @@ class ProductAttributes extends StatelessWidget {
             ],
           ),
         ),
+        SizedBox(height: FSizes.defaultBtwItems),
+
+        ///Attributes
+        
+     
       ],
+
+
+
     );
   }
 }
