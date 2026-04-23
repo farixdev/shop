@@ -11,7 +11,7 @@ import 'package:shop/features/shop/screens/product_details/widgets/product_attri
 import 'package:shop/features/shop/screens/product_details/widgets/product_detail_image_slider.dart';
 import 'package:shop/features/shop/screens/product_details/widgets/product_meta_data.dart';
 import 'package:shop/features/shop/screens/product_details/widgets/rating_share_widget.dart';
-import 'package:shop/features/shop/screens/product_reviews/widgets/product_review.dart';
+import 'package:shop/features/shop/screens/product_reviews/product_review.dart';
 import 'package:shop/utils/constants/sizes.dart';
 
 
