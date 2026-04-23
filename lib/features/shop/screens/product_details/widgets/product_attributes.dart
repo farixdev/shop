@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:shop/common/widgets/texts/product_price_text.dart';
 import 'package:shop/common/widgets/texts/product_title_text.dart';
 import 'package:shop/common/widgets/texts/section_heading.dart';
 import 'package:shop/utils/constants/colors.dart';
@@ -26,17 +27,37 @@ class ProductAttributes extends StatelessWidget {
                   FSectionHeading(title: 'Variation'),
                   SizedBox(width: FSizes.defaultBtwItems),
 
-                  FProductTitleText(title: 'Price: ' , smallSize: true,),
-
-                  Row(
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      //Actual Price
-                      Text(
-                      'Rs250',
-                      style: Theme.of(context).textTheme.titleSmall!.apply(decoration: TextDecoration.lineThrough),
-                      )
+                      Row(
+                        children: [
+                          FProductTitleText(title: 'Price: ', smallSize: true),
+                          
+                          //Actual Price
+                          Text(
+                            'Rs250',
+                            style: Theme.of(context).textTheme.titleSmall!
+                                .apply(decoration: TextDecoration.lineThrough),
+                          ),
+                          SizedBox(width: FSizes.defaultBtwItems),
 
-                      //Sale Price
+                          //Sale Price
+                          FProductPriceText(price: '150'),
+                        ],
+                      ),
+
+                      ///Stack
+                      Row(
+                        children: [
+                          
+                          FProductTitleText(title: 'Status: ', smallSize: true),
+                          Text(
+                            'In Stock',
+                            style: Theme.of(context).textTheme.titleMedium,
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                 ],
