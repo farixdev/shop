@@ -18,7 +18,7 @@ class FChoiceChip extends StatelessWidget {
   Widget build(BuildContext context) {
     final isColor = FHelperFunctions.getColor(text) != null;
     return ChoiceChip(
-      label: isColor ? SizedBox() : Text(''),
+      label: isColor ? SizedBox() : Text(text),
       selected: selected,
       onSelected: onSelected,
       labelStyle: TextStyle(color: selected ? FColors.white : null),
@@ -35,7 +35,7 @@ class FChoiceChip extends StatelessWidget {
       labelPadding: isColor 
           ? EdgeInsets.all(0)
           : null,
-      padding: EdgeInsets.all(0),
+      padding: isColor? EdgeInsets.all(0) : null,
       //selectedColor: Colors.green,
       // ignore: prefer_null_aware_operators
       backgroundColor: isColor
