@@ -79,7 +79,23 @@ class ProductAttributes extends StatelessWidget {
           children: [
             FSectionHeading(title: 'Color'),
             SizedBox(height: FSizes.defaultBtwItems / 2),
-            FChoiceChip(text: 'Green', selected: true,),
+            FChoiceChip(text: 'Green', selected: true),
+            FChoiceChip(text: 'Blue', selected: false),
+            
+            FChoiceChip(text: 'Yellow', selected: false),
+
+          ],
+        ),
+
+        Column(
+          children: [
+            FSectionHeading(title: 'Size'),
+            SizedBox(height: FSizes.defaultBtwItems / 2),
+            FChoiceChip(text: 'EU 34', selected: true),
+            FChoiceChip(text: 'EU 36', selected: false),
+            
+            FChoiceChip(text: 'EU 38', selected: false),
+
           ],
         ),
       ],
