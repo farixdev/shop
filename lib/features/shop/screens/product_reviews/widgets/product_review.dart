@@ -45,7 +45,7 @@ class ProductReviewScreen extends StatelessWidget {
                                     0.5,
                                 child: LinearProgressIndicator(
                                   value: 0.5,
-                                  minHeight: 25,
+                                  minHeight: 11,
                                   backgroundColor: FColors.grey,
                                   valueColor: AlwaysStoppedAnimation(
                                     FColors.fprimaryColor,
