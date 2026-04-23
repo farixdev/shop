@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shop/common/widgets/appbar/appbar.dart';
 import 'package:shop/utils/constants/colors.dart';
 import 'package:shop/utils/constants/sizes.dart';
+import 'package:shop/utils/device/device_utility.dart';
 
 class ProductReviewScreen extends StatelessWidget {
   const ProductReviewScreen({super.key});
@@ -28,30 +29,35 @@ class ProductReviewScreen extends StatelessWidget {
               Row(
                 children: [
                   Text('4.8', style: Theme.of(context).textTheme.displayLarge),
-                  Column(
-                    children: [
-                      Row(
-                        children: [
-                          Text(
-                            '5',
-                            style: Theme.of(context).textTheme.bodyMedium,
-                          ),
-                          Expanded(
-                            child: SizedBox(
-                              child: LinearProgressIndicator(
-                                value: 0.5,
-                                minHeight: 25,
-                                backgroundColor: FColors.grey,
-                                valueColor: AlwaysStoppedAnimation(
-                                  FColors.fprimaryColor,
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              '5',
+                              style: Theme.of(context).textTheme.bodyMedium,
+                            ),
+                            Expanded(
+                              child: SizedBox(
+                                width:
+                                    FDeviceUtility.getScreenWidth(context) *
+                                    0.5,
+                                child: LinearProgressIndicator(
+                                  value: 0.5,
+                                  minHeight: 25,
+                                  backgroundColor: FColors.grey,
+                                  valueColor: AlwaysStoppedAnimation(
+                                    FColors.fprimaryColor,
+                                  ),
+                                  borderRadius: BorderRadius.circular(7),
                                 ),
-                                borderRadius: BorderRadius.circular(7),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                    ],
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
