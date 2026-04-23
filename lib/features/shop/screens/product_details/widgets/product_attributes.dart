@@ -76,6 +76,7 @@ class ProductAttributes extends StatelessWidget {
 
         ///Attributes
         Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             FSectionHeading(title: 'Color'),
             SizedBox(height: FSizes.defaultBtwItems / 2),
@@ -103,6 +104,7 @@ class ProductAttributes extends StatelessWidget {
         ),
 
         Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             FSectionHeading(title: 'Size'),
             SizedBox(height: FSizes.defaultBtwItems / 2),
