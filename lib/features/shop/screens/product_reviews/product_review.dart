@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:shop/common/widgets/appbar/appbar.dart';
+import 'package:shop/common/widgets/products/rating/rating_indicator.dart';
 
 import 'package:shop/features/shop/screens/product_reviews/widgets/rating_progress_indicator.dart';
 
@@ -28,6 +30,11 @@ class ProductReviewScreen extends StatelessWidget {
 
               // Overall Product Rating
               FOverallProductRating(),
+              FRatingBarIndicator(rating: 4.5 ,),
+              Text("12,611" , style: Theme.of(context).textTheme.bodySmall,),
+              const SizedBox(height: FSizes.defaultBtwSections,),
+
+              //User reviews LIST
             ],
           ),
         ),
@@ -35,4 +42,3 @@ class ProductReviewScreen extends StatelessWidget {
     );
   }
 }
-
