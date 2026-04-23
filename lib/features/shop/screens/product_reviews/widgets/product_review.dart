@@ -22,6 +22,7 @@ class ProductReviewScreen extends StatelessWidget {
                SizedBox(height: FSizes.defaultBtwItems,),
 
                // Overall Product Rating
+               
             ],
           ),
           ),
