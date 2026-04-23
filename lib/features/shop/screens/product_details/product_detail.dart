@@ -33,6 +33,7 @@ class ProductDetailScreen extends StatelessWidget {
                   FProductMetaData(),
                   ///Attributes
                   ProductAttributes(),
+                  const SizedBox(height: FSizes.defaultBtwSections,),
                   ///Checkout Button
                   SizedBox(
                     width: double.infinity,
