@@ -33,7 +33,7 @@ class ProductAttributes extends StatelessWidget {
                       Row(
                         children: [
                           FProductTitleText(title: 'Price: ', smallSize: true),
-                          
+
                           //Actual Price
                           Text(
                             'Rs250',
@@ -50,7 +50,6 @@ class ProductAttributes extends StatelessWidget {
                       ///Stack
                       Row(
                         children: [
-                          
                           FProductTitleText(title: 'Status: ', smallSize: true),
                           Text(
                             'In Stock',
@@ -63,6 +62,12 @@ class ProductAttributes extends StatelessWidget {
                 ],
               ),
               //Variation Description
+              FProductTitleText(
+                title:
+                    'This is the description of the product and it can go upto 4 lines',
+                smallSize: true,
+                maxLines: 4,
+              ),
             ],
           ),
         ),
