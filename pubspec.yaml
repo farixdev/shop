@@ -21,9 +21,6 @@ dependencies:
   url_launcher: ^6.3.2
   flutter_native_splash: ^2.4.7
   smooth_page_indicator: ^2.0.1
-  carousel_slider: ^5.1.2
-  
-
   cupertino_icons: ^1.0.8
   iconsax_flutter: ^1.0.1
 
@@ -31,11 +28,12 @@ dependencies:
   get: ^4.7.3
   get_storage: ^2.1.1
   
-  
-  
-  
 
-  #product specific
+  #product Specific
+  readmore: ^3.0.0
+  carousel_slider: ^5.1.2
+  
+  
 
 
 #------------------- packages end -------------------#
