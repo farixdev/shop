@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop/common/widgets/chips/choice_chip.dart';
 import 'package:shop/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:shop/common/widgets/texts/product_price_text.dart';
 import 'package:shop/common/widgets/texts/product_title_text.dart';
@@ -17,8 +18,6 @@ class ProductAttributes extends StatelessWidget {
       children: [
         /// -Selected Attribute Pricing   & Description
         FRoundedContainer(
-
-        
           padding: EdgeInsets.all(FSizes.md),
           backgroundColor: dark ? FColors.darkergrey : FColors.grey,
           child: Column(
@@ -76,12 +75,15 @@ class ProductAttributes extends StatelessWidget {
         SizedBox(height: FSizes.defaultBtwItems),
 
         ///Attributes
-        
-     
+        Column(
+          children: [
+            FSectionHeading(title: 'Color'),
+            SizedBox(height: FSizes.defaultBtwItems / 2),
+            FChoiceChip(text: 'Green', selected: true,),
+          ],
+        ),
       ],
-
-
-
     );
   }
 }
+
