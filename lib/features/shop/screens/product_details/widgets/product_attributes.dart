@@ -79,11 +79,26 @@ class ProductAttributes extends StatelessWidget {
           children: [
             FSectionHeading(title: 'Color'),
             SizedBox(height: FSizes.defaultBtwItems / 2),
-            FChoiceChip(text: 'Green', selected: true),
-            FChoiceChip(text: 'Blue', selected: false),
-            
-            FChoiceChip(text: 'Yellow', selected: false),
-
+            Wrap(
+              spacing: 8,
+              children: [
+                FChoiceChip(
+                  text: 'green',
+                  selected: true,
+                  onSelected: (value) {},
+                ),
+                FChoiceChip(
+                  text: 'yellow',
+                  selected: false,
+                  onSelected: (value) {},
+                ),
+                FChoiceChip(
+                  text: 'blue',
+                  selected: false,
+                  onSelected: (value) {},
+                ),
+              ],
+            ),
           ],
         ),
 
@@ -91,15 +106,17 @@ class ProductAttributes extends StatelessWidget {
           children: [
             FSectionHeading(title: 'Size'),
             SizedBox(height: FSizes.defaultBtwItems / 2),
-            FChoiceChip(text: 'EU 34', selected: true),
-            FChoiceChip(text: 'EU 36', selected: false),
-            
-            FChoiceChip(text: 'EU 38', selected: false),
-
+            Wrap(
+              spacing: 8,
+              children: [
+                FChoiceChip(text: 'EU 32', selected: true, onSelected: (value) {}),
+            FChoiceChip(text: 'EU 34', selected: false, onSelected: (value) {}),
+            FChoiceChip(text: 'EU 38', selected: false, onSelected: (value) {}),
+              ],
+            ),
           ],
         ),
       ],
     );
   }
 }
-
