@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
+import 'package:shop/common/widgets/icons/f-circular-icon.dart';
 import 'package:shop/utils/constants/colors.dart';
 import 'package:shop/utils/constants/sizes.dart';
 import 'package:shop/utils/helpers/helper_functions.dart';
@@ -17,6 +19,16 @@ class FBottomAddToCart extends StatelessWidget {
           topLeft: Radius.circular(FSizes.cardRadiusLg),
           topRight: Radius.circular(FSizes.cardRadiusLg), 
         )
+      ),
+      child: Row(
+        children: [
+          Row(
+            children: [
+              FCircularIcon(icon: Iconsax.minus_copy , width: 40, height: 40, backgroundColor: FColors.darkergrey, color: FColors.white,),
+              
+            ],
+          )
+        ],
       ),
     );
   }
