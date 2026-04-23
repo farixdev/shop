@@ -41,7 +41,7 @@ class FPromoSlider extends StatelessWidget {
                     width: 20,
                     height: 4,
                     backgroundColor: controller.carousalCurrentIndex.value == i
-                        ? FColors.primaryColor
+                        ? FColors.fprimaryColor
                         : FColors.grey,
                   ),
               ],

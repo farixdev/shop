@@ -32,8 +32,12 @@ class ProductDetailScreen extends StatelessWidget {
                   ///Price, Title,Stock & Brand
                   FProductMetaData(),
                   ///Attributes
-                  ProductAttributes()
+                  ProductAttributes(),
                   ///Checkout Button
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(onPressed: (){}, child: Text('Checkout')),
+                  ) 
                   ///Description
                   ///Reviews
                 ],

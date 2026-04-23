@@ -57,7 +57,7 @@ class FProductImageSlider extends StatelessWidget {
                     backgroundColor: dark
                         ? FColors.dark
                         : FColors.white,
-                    border: Border.all(color: FColors.primaryColor),
+                    border: Border.all(color: FColors.fprimaryColor),
                     padding: const EdgeInsets.all(FSizes.sm),
                     imageUrl: FImages.tshirt1,
                   ),

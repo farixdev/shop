@@ -19,8 +19,8 @@ class FTabBar extends StatelessWidget implements PreferredSizeWidget {
       child: TabBar(
         tabs: tabs,
         isScrollable: true,
-        indicatorColor: FColors.primaryColor,
-        labelColor: dark ? FColors.white : FColors.primaryColor,
+        indicatorColor: FColors.fprimaryColor,
+        labelColor: dark ? FColors.white : FColors.fprimaryColor,
         unselectedLabelColor: FColors.darkgrey,
       ),
     );

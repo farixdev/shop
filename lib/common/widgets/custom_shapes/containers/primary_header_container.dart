@@ -13,7 +13,7 @@ class FPrimaryHeaderContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return FCurveEdgeWidget(
       child: Container(
-        color: FColors.primaryColor,
+        color: FColors.fprimaryColor,
         padding: const EdgeInsets.all(0),
        
           child: Stack(

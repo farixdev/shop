@@ -137,7 +137,7 @@ class SettingScreen extends StatelessWidget {
                       onPressed: () {},
                       style: OutlinedButton.styleFrom(
                         side: BorderSide(
-                          color: dark ? FColors.white : FColors.primaryColor,
+                          color: dark ? FColors.white : FColors.fprimaryColor,
                         ),
                       ),
                       child: Text(
