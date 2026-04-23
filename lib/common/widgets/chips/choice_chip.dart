@@ -17,30 +17,27 @@ class FChoiceChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isColor = FHelperFunctions.getColor(text) != null;
-    return ChoiceChip(
-      label: isColor ? SizedBox() : Text(text ),
-      selected: selected,
-      onSelected: onSelected,
-      labelStyle: TextStyle(color: selected ? FColors.white : null),
-      avatar: isColor
-          ? FCircularContainer(
-              width: 50,
-              height: 50,
-              backgroundColor: FHelperFunctions.getColor(text)!,
-            )
-          : null,
-      shape: isColor
-          ? const CircleBorder()
-          : null,
-      labelPadding: isColor 
-          ? EdgeInsets.all(0)
-          : null,
-      padding: isColor? EdgeInsets.all(0) : null,
-      selectedColor: FColors.fprimaryColor,
-      // ignore: prefer_null_aware_operators
-      backgroundColor: isColor
-          ? FHelperFunctions.getColor(text)!
-          : null,
+    return Theme(
+      data: Theme.of(context).copyWith(canvasColor: Colors.transparent),
+      child: ChoiceChip(
+        label: isColor ? SizedBox() : Text(text),
+        selected: selected,
+        onSelected: onSelected,
+        labelStyle: TextStyle(color: selected ? FColors.white : null),
+        avatar: isColor
+            ? FCircularContainer(
+                width: 50,
+                height: 50,
+                backgroundColor: FHelperFunctions.getColor(text)!,
+              )
+            : null,
+        shape: isColor ? const CircleBorder() : null,
+        labelPadding: isColor ? EdgeInsets.all(0) : null,
+        padding: isColor ? EdgeInsets.all(0) : null,
+        selectedColor: FColors.fprimaryColor,
+        // ignore: prefer_null_aware_operators
+        backgroundColor: isColor ? FHelperFunctions.getColor(text)! : null,
+      ),
     );
   }
 }
