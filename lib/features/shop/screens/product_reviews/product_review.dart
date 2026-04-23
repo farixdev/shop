@@ -4,6 +4,7 @@ import 'package:shop/common/widgets/appbar/appbar.dart';
 import 'package:shop/common/widgets/products/rating/rating_indicator.dart';
 
 import 'package:shop/features/shop/screens/product_reviews/widgets/rating_progress_indicator.dart';
+import 'package:shop/features/shop/screens/product_reviews/widgets/user_review_card.dart';
 
 import 'package:shop/utils/constants/sizes.dart';
 
@@ -35,6 +36,7 @@ class ProductReviewScreen extends StatelessWidget {
               const SizedBox(height: FSizes.defaultBtwSections,),
 
               //User reviews LIST
+              UserReviewCard()
             ],
           ),
         ),
