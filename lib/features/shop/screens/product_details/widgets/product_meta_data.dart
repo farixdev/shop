@@ -9,7 +9,7 @@ import 'package:shop/utils/constants/enums.dart';
 import 'package:shop/utils/constants/image_strings.dart';
 import 'package:shop/utils/constants/sizes.dart';
 
-import 'package:shop/utils/helpers/helper_functions.dart';
+ import 'package:shop/utils/helpers/helper_functions.dart';
 
 class FProductMetaData extends StatelessWidget {
   const FProductMetaData({super.key});
