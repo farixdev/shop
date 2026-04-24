@@ -3,15 +3,17 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:shop/common/widgets/appbar/appbar.dart';
 import 'package:shop/common/widgets/icons/f-circular-icon.dart';
 import 'package:shop/common/widgets/products/cart/cart_item.dart';
+import 'package:shop/utils/constants/colors.dart';
 
 import 'package:shop/utils/constants/sizes.dart';
+import 'package:shop/utils/helpers/helper_functions.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    //final dark = FHelperFunctions.isDarkMode(context);
+    final dark = FHelperFunctions.isDarkMode(context);
     return Scaffold(
       appBar: FAppBar(
         showBackArrow: true,
@@ -37,6 +39,7 @@ class CartScreen extends StatelessWidget {
                       width: 32,
                       height: 32,
                       size: FSizes.md,
+                      color: dark? FColors.white : FColors.black,
                     ),
                   ],
                 ),
