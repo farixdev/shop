@@ -4,6 +4,8 @@ import 'package:shop/common/widgets/custom_shapes/containers/rounded_container.d
 import 'package:shop/common/widgets/products/cart/coupon_widget.dart';
 
 import 'package:shop/features/shop/screens/cart/widgets/cart_items.dart';
+import 'package:shop/features/shop/screens/checkout/widgets/billing_address_section.dart';
+import 'package:shop/features/shop/screens/checkout/widgets/billing_amount_section.dart';
 import 'package:shop/features/shop/screens/checkout/widgets/billing_payment_Section.dart';
 import 'package:shop/utils/constants/colors.dart';
 
@@ -45,15 +47,17 @@ class CheckoutScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     ///Pricing
-                    FBillingPaymentSection(),
+                    FBillingAmmountSection(),
                     const SizedBox(height: FSizes.defaultBtwItems),
                     ///Divider
                     Divider(),
                     const SizedBox(height: FSizes.defaultBtwItems),
                     ///Payment Methods
-                    
+                    FBillingPaymentSection(), 
                     const SizedBox(height: FSizes.defaultBtwItems),
                     ///Address
+                    FBillingAddressSection(), 
+                    const SizedBox(height: FSizes.defaultBtwItems),
                   ],
                 ),
 
