@@ -14,7 +14,7 @@ class FCartItems extends StatelessWidget {
     return ListView.separated(
       shrinkWrap: true,
       separatorBuilder: (_, _) => SizedBox(height: FSizes.defaultBtwSections),
-      itemCount: 10,
+      itemCount: 3,
       itemBuilder: (_, index) => Column(
         children: [
           //Cart Item
