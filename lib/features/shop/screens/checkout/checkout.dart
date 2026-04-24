@@ -33,6 +33,9 @@ class CheckoutScreen extends StatelessWidget {
               //Coupon TextField
               FCouponCode(),
               const SizedBox(height: FSizes.defaultBtwSections),
+
+              //Billing Section
+              
             ],
           ),
         ),
