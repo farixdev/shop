@@ -43,6 +43,7 @@ class FSingleAddress extends StatelessWidget {
             ),
           ),
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 'Faris Ahmad',
