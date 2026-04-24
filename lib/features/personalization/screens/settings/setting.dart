@@ -9,6 +9,7 @@ import 'package:shop/common/widgets/custom_shapes/containers/primary_header_cont
 import 'package:shop/common/widgets/list_tiles/setting_menu_tiles.dart';
 import 'package:shop/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:shop/common/widgets/texts/section_heading.dart';
+import 'package:shop/features/personalization/screens/address/address.dart';
 import 'package:shop/features/personalization/screens/profile/profile.dart';
 
 import 'package:shop/utils/constants/colors.dart';
@@ -60,7 +61,7 @@ class SettingScreen extends StatelessWidget {
                     icon: Iconsax.safe_home,
                     title: 'My Address',
                     subTitle: 'Set shopping delivery address',
-                    onTap: () {},
+                    onTap: () => Get.to(() => UserAddressScreen()),
                   ),
                   SettingMenuTile(
                     icon: Iconsax.shopping_cart,
