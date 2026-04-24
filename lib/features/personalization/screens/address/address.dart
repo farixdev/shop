@@ -28,7 +28,8 @@ class UserAddressScreen extends StatelessWidget {
           padding: EdgeInsets.all(FSizes.defaultSpace),
           child: Column(
             children: [
-             FSingleAddress(selectedAddress: true)
+             FSingleAddress(selectedAddress: true),
+             FSingleAddress(selectedAddress: false),
             ],
           ),
 
