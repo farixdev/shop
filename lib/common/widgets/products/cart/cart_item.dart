@@ -55,17 +55,18 @@ class FCartItem extends StatelessWidget {
                       text: 'Color',
                       style: Theme.of(context).textTheme.bodySmall,
                     ),
+                    
                     TextSpan(
-                      text: 'Green',
-                      style: Theme.of(context).textTheme.bodySmall,
+                      text: ' Green ',
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     TextSpan(
                       text: 'Size',
                       style: Theme.of(context).textTheme.bodySmall,
                     ),
                     TextSpan(
-                      text: 'UK 08',
-                      style: Theme.of(context).textTheme.bodySmall,
+                      text: ' UK 08',
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                   ],
                 ),
