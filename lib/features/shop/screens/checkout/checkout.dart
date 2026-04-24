@@ -30,39 +30,67 @@ class CheckoutScreen extends StatelessWidget {
               const SizedBox(height: FSizes.defaultBtwSections),
 
               //Coupon TextField
-              FRoundedContainer(
-                showBorder: true,
-                backgroundColor: dark ? FColors.dark : FColors.white,
-                padding: EdgeInsets.only(
-                  top: FSizes.sm,
-                  bottom: FSizes.sm,
-                  left: FSizes.md,
-                  right: FSizes.sm,
-                ),
-                child: Row(
-                  children: [
-                    Flexible(
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                          hintText: 'Have a promo code? Enter here',
-                          focusedBorder: InputBorder.none,
-                          border: InputBorder.none,
-                          enabledBorder: InputBorder.none,
-                          disabledBorder: InputBorder.none,
-                          errorBorder: InputBorder.none,
-                          
-                        ),
-                      ),
-                    ),
-                    //Button
-                   SizedBox(width: 80, child:  ElevatedButton(onPressed: (){}, child: Text('Apply'))),
-                  ],
-                ),
-              ),
+              FCouponCode(dark: dark),
               const SizedBox(height: FSizes.defaultBtwSections),
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class FCouponCode extends StatelessWidget {
+  const FCouponCode({
+    super.key,
+    required this.dark,
+  });
+
+  final bool dark;
+
+  @override
+  Widget build(BuildContext context) {
+    return FRoundedContainer(
+      showBorder: true,
+      backgroundColor: dark ? FColors.dark : FColors.white,
+      padding: EdgeInsets.only(
+        top: FSizes.sm,
+        bottom: FSizes.sm,
+        left: FSizes.md,
+        right: FSizes.sm,
+      ),
+      child: Row(
+        children: [
+          Flexible(
+            child: TextFormField(
+              decoration: InputDecoration(
+                hintText: 'Have a promo code? Enter here',
+                focusedBorder: InputBorder.none,
+                border: InputBorder.none,
+                enabledBorder: InputBorder.none,
+                disabledBorder: InputBorder.none,
+                errorBorder: InputBorder.none,
+              ),
+            ),
+          ),
+          //Button
+          SizedBox(
+            width: 80,
+            child: ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                // ignore: deprecated_member_use
+                foregroundColor: dark?  FColors.white.withOpacity(0.5) : FColors.dark.withOpacity(0.5),
+                // ignore: deprecated_member_use
+                backgroundColor: FColors.grey.withOpacity(0.2), 
+                // ignore: deprecated_member_use
+                side: BorderSide(color: FColors.grey.withOpacity(0.1)),
+    
+              ),
+              child: Text('Apply'),
+            ),
+          ),
+        ],
       ),
     );
   }
