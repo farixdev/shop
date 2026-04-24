@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:shop/common/widgets/appbar/appbar.dart';
+import 'package:shop/common/widgets/icons/f-circular-icon.dart';
 import 'package:shop/common/widgets/products/cart/cart_item.dart';
 
 import 'package:shop/utils/constants/sizes.dart';
-
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
@@ -27,6 +28,18 @@ class CartScreen extends StatelessWidget {
             itemBuilder: (_, index) => Column(
               children: [
                 FCartItem(),
+                SizedBox(height: FSizes.defaultBtwItems),
+                Row(
+                  children: [
+                    //Add & Remove Button
+                    FCircularIcon(
+                      icon: Iconsax.minus_copy,
+                      width: 32,
+                      height: 32,
+                      size: FSizes.md,
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
@@ -35,4 +48,3 @@ class CartScreen extends StatelessWidget {
     );
   }
 }
-
