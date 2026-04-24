@@ -45,10 +45,17 @@ class CheckoutScreen extends StatelessWidget {
                       child: TextFormField(
                         decoration: InputDecoration(
                           hintText: 'Have a promo code? Enter here',
+                          focusedBorder: InputBorder.none,
+                          border: InputBorder.none,
+                          enabledBorder: InputBorder.none,
+                          disabledBorder: InputBorder.none,
+                          errorBorder: InputBorder.none,
                           
                         ),
                       ),
                     ),
+                    //Button
+                   SizedBox(width: 80, child:  ElevatedButton(onPressed: (){}, child: Text('Apply'))),
                   ],
                 ),
               ),
