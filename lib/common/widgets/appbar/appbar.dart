@@ -34,7 +34,7 @@ class FAppBar extends StatelessWidget implements PreferredSizeWidget {
         leading: showBackArrow
             ? IconButton(
                 onPressed: () => Get.back,
-                icon: Icon(Iconsax.arrow_circle_left , color: dark? FColors.white : FColors.dark ),
+                icon: Icon(Iconsax.arrow_copy , color: dark? FColors.white : FColors.dark ),
               )
             : leadingIcon != null
             ? IconButton(onPressed: leadingOnPress, icon: Icon(leadingIcon))
