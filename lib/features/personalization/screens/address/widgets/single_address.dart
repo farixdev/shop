@@ -14,10 +14,11 @@ class FSingleAddress extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = FHelperFunctions.isDarkMode(context);
     return FRoundedContainer(
+      padding: const EdgeInsets.all(FSizes.md),
       width: double.infinity,
       showBorder: true,
 
-      backgroundColor: selectedAddress  
+      backgroundColor: selectedAddress
           // ignore: deprecated_member_use
           ? FColors.fprimaryColor.withOpacity(0.5)
           : Colors.transparent,
@@ -29,12 +30,35 @@ class FSingleAddress extends StatelessWidget {
       margin: EdgeInsets.only(bottom: FSizes.defaultBtwItems),
       child: Stack(
         children: [
-          Icon(
-            selectedAddress? Iconsax.tick_circle_copy : null,
-            color: selectedAddress? dark? FColors.light :   FColors.dark : null,
+          Positioned(
+            right: 5,
+            top : 0,
+            child: Icon(
+              selectedAddress ? Iconsax.tick_circle : null,
+              color: selectedAddress
+                  ? dark
+                        ? FColors.light
+                        : FColors.dark
+                  : null,
+            ),
+          ),
+          Column(
+            children: [
+              Text(
+                'Faris Ahmad',
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+              const SizedBox(height: FSizes.sm / 2),
+              const Text('+92 327 0944766' , maxLines: 1, overflow: TextOverflow.ellipsis,),
+              const SizedBox(height: FSizes.sm / 2),
+              const Text( 'House#408 Block D Avenue6 NFC Society, Lahore' , softWrap: true,),
+
+            ],  
           )
         ],
-      )
+      ),
     );
   }
 }
