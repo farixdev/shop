@@ -36,7 +36,10 @@ class ProductReviewScreen extends StatelessWidget {
               const SizedBox(height: FSizes.defaultBtwSections,),
 
               //User reviews LIST
-              UserReviewCard()
+              UserReviewCard(),
+              UserReviewCard(),
+              UserReviewCard(),
+              UserReviewCard(),
             ],
           ),
         ),
