@@ -4,6 +4,7 @@ import 'package:shop/common/widgets/custom_shapes/containers/rounded_container.d
 import 'package:shop/common/widgets/products/cart/coupon_widget.dart';
 
 import 'package:shop/features/shop/screens/cart/widgets/cart_items.dart';
+import 'package:shop/features/shop/screens/checkout/widgets/billing_payment_Section.dart';
 import 'package:shop/utils/constants/colors.dart';
 
 import 'package:shop/utils/constants/sizes.dart';
@@ -37,14 +38,21 @@ class CheckoutScreen extends StatelessWidget {
               const SizedBox(height: FSizes.defaultBtwSections),
 
               //Billing Section
-              FRoundedContainer(
-                showBorder: true  ,
+              FRoundedContainer( 
+                showBorder: true ,
+                padding: EdgeInsets.all(FSizes.md),
                 backgroundColor: dark? FColors.black : FColors.white,
                 child: Column(
                   children: [
                     ///Pricing
+                    FBillingPaymentSection(),
+                    const SizedBox(height: FSizes.defaultBtwItems),
                     ///Divider
+                    Divider(),
+                    const SizedBox(height: FSizes.defaultBtwItems),
                     ///Payment Methods
+                    
+                    const SizedBox(height: FSizes.defaultBtwItems),
                     ///Address
                   ],
                 ),
