@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:shop/common/widgets/appbar/appbar.dart';
+import 'package:shop/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:shop/common/widgets/products/cart/coupon_widget.dart';
 
 import 'package:shop/features/shop/screens/cart/widgets/cart_items.dart';
+import 'package:shop/utils/constants/colors.dart';
 
 import 'package:shop/utils/constants/sizes.dart';
-//import 'package:shop/utils/helpers/helper_functions.dart';
+import 'package:shop/utils/helpers/helper_functions.dart';
 
 class CheckoutScreen extends StatelessWidget {
   const CheckoutScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    //final dark = FHelperFunctions.isDarkMode(context);
+    final dark = FHelperFunctions.isDarkMode(context);
     return Scaffold(
       appBar: FAppBar(
         showBackArrow: true,
@@ -35,7 +37,19 @@ class CheckoutScreen extends StatelessWidget {
               const SizedBox(height: FSizes.defaultBtwSections),
 
               //Billing Section
-              
+              FRoundedContainer(
+                showBorder: true  ,
+                backgroundColor: dark? FColors.black : FColors.white,
+                child: Column(
+                  children: [
+                    ///Pricing
+                    ///Divider
+                    ///Payment Methods
+                    ///Address
+                  ],
+                ),
+
+              )
             ],
           ),
         ),
