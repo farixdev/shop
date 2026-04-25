@@ -66,7 +66,7 @@ class StoreScreen extends StatelessWidget {
                       FSectionHeading(
                         title: 'Feature Brand',
                         showActionButton: true,
-                        onPressed: () => Get.to(() => AllBrandsScreen()),
+                        onPressed: () => Get.to(() => AllBrandsScreen(  )),
                       ),
                       const SizedBox(height: FSizes.defaultBtwItems / 1.5),
 
