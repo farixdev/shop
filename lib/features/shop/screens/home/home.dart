@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 
 import 'package:shop/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:shop/common/widgets/custom_shapes/containers/search_container.dart';
@@ -6,6 +7,7 @@ import 'package:shop/common/widgets/layouts/grid_layout.dart';
 import 'package:shop/common/widgets/products/product_cards/product_card_vertical.dart';
 
 import 'package:shop/common/widgets/texts/section_heading.dart';
+import 'package:shop/features/shop/screens/all_products/all_products.dart';
 import 'package:shop/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:shop/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:shop/features/shop/screens/home/widgets/promo_slider.dart';
@@ -90,7 +92,7 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(height: FSizes.defaultBtwSections),
 
                   //heading
-                  FSectionHeading(title: 'Popular Products', onPressed: (){} , showActionButton: true),
+                  FSectionHeading(title: 'Popular Products', onPressed: ()=> Get.to(() => AllProduct()) , showActionButton: true),
                   const SizedBox(height: FSizes.defaultBtwItems),
 
                   //POPULAR PRODUCTS
