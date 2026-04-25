@@ -11,7 +11,7 @@ import 'package:shop/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:shop/common/widgets/texts/section_heading.dart';
 import 'package:shop/features/personalization/screens/address/address.dart';
 import 'package:shop/features/personalization/screens/profile/profile.dart';
-import 'package:shop/features/shop/order/order.dart';
+import 'package:shop/features/shop/screens/order/order.dart';
 
 import 'package:shop/utils/constants/colors.dart';
 
