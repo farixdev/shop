@@ -13,17 +13,23 @@ import 'package:shop/utils/constants/sizes.dart';
 import 'package:shop/utils/helpers/helper_functions.dart';
 
 class FBrandCard extends StatelessWidget {
-  const FBrandCard({super.key, this.showBorder = true, this.productCount = '0', this.brandName = 'Nike',});
+  const FBrandCard({
+    super.key,
+    this.showBorder = true,
+    this.productCount = '0',
+    this.brandName = 'Nike', this.onTap,
+  });
 
   final bool showBorder;
   final String productCount;
   final String brandName;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     final dark = FHelperFunctions.isDarkMode(context);
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: FRoundedContainer(
         padding: const EdgeInsets.all(FSizes.sm),
         showBorder: showBorder,
@@ -48,7 +54,7 @@ class FBrandCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   FBrandTitleTextWithVerifiedIcon(
-                    title:  brandName,
+                    title: brandName,
                     brandTextSize: TextSizes.large,
                   ),
                   Text(
