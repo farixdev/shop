@@ -15,24 +15,41 @@ class SubCategoriesScreen extends StatelessWidget {
       appBar: FAppBar(title: Text('Sport Shirts'), showBackArrow: true),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(FSizes.defaultSpace) ,
+          padding: EdgeInsets.all(FSizes.defaultSpace),
           child: Column(
             children: [
               //Banner
-              FRoundedImage(imageUrl: FImages.shoeBanner , width: double.infinity , height: null, applyImageRadius: true ,),
-              const SizedBox(height: FSizes.defaultBtwSections,),
+              FRoundedImage(
+                imageUrl: FImages.shoeBanner,
+                width: double.infinity,
+                height: null,
+                applyImageRadius: true,
+              ),
+              const SizedBox(height: FSizes.defaultBtwSections),
 
               //Sub Categoies
               Column(
                 children: [
                   ///Heading
-                  FSectionHeading(title: 'Sports Shirt' , onPressed: (){}, showActionButton: true,),
-                  const SizedBox(height: FSizes.defaultBtwItems / 2 ),
+                  FSectionHeading(
+                    title: 'Sports Shirt',
+                    onPressed: () {},
+                    showActionButton: true,
+                  ),
+                  const SizedBox(height: FSizes.defaultBtwItems / 2),
 
-                 ListView.builder(itemBuilder: (context, index )=>  FProductCardHorizontal())
-  
+                  SizedBox(
+                    height: 120,
+                    child: ListView.separated(
+                      itemCount: 4,
+                      separatorBuilder: (context, index) =>
+                          const SizedBox(width: FSizes.defaultBtwItems),
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) => FProductCardHorizontal(),
+                    ),
+                  ),
                 ],
-              )
+              ),
             ],
           ),
         ),
