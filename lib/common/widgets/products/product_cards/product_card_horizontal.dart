@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:iconsax_flutter/iconsax_flutter.dart';
-import 'package:shop/common/styles/shadows.dart';
 import 'package:shop/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:shop/common/widgets/icons/f-circular-icon.dart';
 import 'package:shop/common/widgets/images/rounded_image.dart';
@@ -23,9 +22,8 @@ class FProductCardHorizontal extends StatelessWidget {
       width: 310,
       padding: const EdgeInsets.all(1),
       decoration: BoxDecoration(
-        boxShadow: [FShadowStyle.verticalProductShadow],
         borderRadius: BorderRadius.circular(FSizes.productImageRadius),
-        color: dark ? FColors.darkergrey : FColors.white,
+        color: dark ? FColors.darkergrey : FColors.lightContainer,
       ),
       child: Row(
         children: [
