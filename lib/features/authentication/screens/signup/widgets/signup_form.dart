@@ -89,11 +89,14 @@ class FSignupForm extends StatelessWidget {
           TextFormField(
             controller: controller.password,
             validator: (value) => FValidator.validatePassword(value),
-            obscureText: true,
-            decoration: const InputDecoration(
+            obscureText: controller.hidePassword.value,
+            decoration:  InputDecoration(
               labelText: FTexts.password,
               prefixIcon: Icon(Iconsax.password_check),
-              suffixIcon: Icon(Iconsax.eye_slash),
+              suffixIcon: IconButton(
+                onPressed: () => controller.hidePassword.value = !controller.hidePassword.value, 
+                icon: const Icon(Iconsax.eye_slash)
+                )
             ),
           ),
           const SizedBox(height: FSizes.spaceBtwInputFields),
