@@ -98,7 +98,7 @@ class FSignupForm extends StatelessWidget {
                 suffixIcon: IconButton(
                   onPressed: () => controller.hidePassword.value =
                       !controller.hidePassword.value,
-                  icon: const Icon(Iconsax.eye_slash),
+                  icon:   Icon(controller.hidePassword.value ? Iconsax.eye_slash : Iconsax.eye),
                 ),
               ),
             ),
