@@ -43,7 +43,10 @@ class FImages {
     //profile
     static const String profilePicture =
       "assets/images/User/user.png";
+  
+  //animation loader
 
+  static const String loader = "assets/images/animations/trail_loading.json";
 
     //product images
     static const String tshirt1 = "assets/images/products/tshirt-1.png";
