@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-
-
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:shop/features/authentication/controllers/signup/signup_controller.dart';
 
@@ -28,7 +26,8 @@ class FSignupForm extends StatelessWidget {
                 child: TextFormField(
                   controller: controller.firstName,
                   expands: false,
-                  validator: (value) => FValidator.vlidateEmptyText('First Name', value),
+                  validator: (value) =>
+                      FValidator.vlidateEmptyText('First Name', value),
                   decoration: const InputDecoration(
                     label: Text(FTexts.firstName),
                     prefixIcon: Icon(Iconsax.user),
@@ -39,7 +38,8 @@ class FSignupForm extends StatelessWidget {
               Expanded(
                 child: TextFormField(
                   controller: controller.lastName,
-                  validator: (value) => FValidator.vlidateEmptyText('Last Name', value),
+                  validator: (value) =>
+                      FValidator.vlidateEmptyText('Last Name', value),
                   expands: false,
                   decoration: const InputDecoration(
                     label: Text(FTexts.lastName),
@@ -55,7 +55,8 @@ class FSignupForm extends StatelessWidget {
           TextFormField(
             controller: controller.username,
             expands: false,
-            validator: (value) => FValidator.vlidateEmptyText('Username', value),
+            validator: (value) =>
+                FValidator.vlidateEmptyText('Username', value),
             decoration: const InputDecoration(
               label: Text(FTexts.username),
               prefixIcon: Icon(Iconsax.user_edit),
@@ -86,17 +87,20 @@ class FSignupForm extends StatelessWidget {
           const SizedBox(height: FSizes.spaceBtwInputFields),
 
           ///password
-          TextFormField(
-            controller: controller.password,
-            validator: (value) => FValidator.validatePassword(value),
-            obscureText: controller.hidePassword.value,
-            decoration:  InputDecoration(
-              labelText: FTexts.password,
-              prefixIcon: Icon(Iconsax.password_check),
-              suffixIcon: IconButton(
-                onPressed: () => controller.hidePassword.value = !controller.hidePassword.value, 
-                icon: const Icon(Iconsax.eye_slash)
-                )
+          Obx(
+            () => TextFormField(
+              controller: controller.password,
+              validator: (value) => FValidator.validatePassword(value),
+              obscureText: controller.hidePassword.value,
+              decoration: InputDecoration(
+                labelText: FTexts.password,
+                prefixIcon: Icon(Iconsax.password_check),
+                suffixIcon: IconButton(
+                  onPressed: () => controller.hidePassword.value =
+                      !controller.hidePassword.value,
+                  icon: const Icon(Iconsax.eye_slash),
+                ),
+              ),
             ),
           ),
           const SizedBox(height: FSizes.spaceBtwInputFields),
@@ -110,7 +114,6 @@ class FSignupForm extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-
               onPressed: () => controller.signup(),
               child: const Text(FTexts.createAccount),
             ),
