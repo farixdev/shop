@@ -30,4 +30,19 @@ class AuthenticationRepository extends GetxController {
     deviceStorage.writeIfNull('isFirstTime', true);
     deviceStorage.read('isFirstTime') != true  ? Get.offAll(()=> LoginScreen()) : Get.offAll(OnBoardingScreen());
   }
+
+
+  //============= Email & password sign in ===============
+
+  //[Email authentication] SignIn
+  //[Email authentication] Register
+  //[Email authentication] Mail Verification
+  //[Re authentication] Forget password
+
+  
+  //============= Federated indentity AND social   sign in ===============
+
+   //[Google authentication] Google
+  //[Facebook authentication] Facebook
+
 }
