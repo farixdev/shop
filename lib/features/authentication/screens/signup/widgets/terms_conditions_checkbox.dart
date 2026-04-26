@@ -23,7 +23,11 @@ class FTermsAndConditionsCheckBox extends StatelessWidget {
           child: Obx(
             () => Checkbox(
               value: controller.privacyPolicy.value,
-              onChanged: (value) => !controller.privacyPolicy.value,
+              onChanged: (value) {
+                if (value != null) {
+                  controller.privacyPolicy.value = value;
+                }
+              },
             ),
           ),
         ),
