@@ -23,6 +23,9 @@ dependencies:
   smooth_page_indicator: ^2.0.1
   cupertino_icons: ^1.0.8
   iconsax_flutter: ^1.0.1
+  lottie: ^3.3.3
+  connectivity_plus: ^7.1.1
+  
 
   #state manageament
   get: ^4.7.3
@@ -36,6 +39,7 @@ dependencies:
 
   #firebase
   firebase_core: ^4.7.0
+ 
   
   
 
