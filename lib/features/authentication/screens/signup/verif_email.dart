@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop/common/widgets/sucess_screen/sucess_screen.dart';
+import 'package:shop/features/authentication/controllers/signup/verify_email_controller.dart';
 import 'package:shop/features/authentication/screens/login/login.dart';
 import 'package:shop/utils/constants/image_strings.dart';
 
@@ -15,7 +16,7 @@ class VerifyEmailScreen extends StatelessWidget {
   final String? email;
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(VerifyEmailScreen());
+    final controller = Get.put(VerifyEmailController());
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -46,7 +47,7 @@ class VerifyEmailScreen extends StatelessWidget {
               const SizedBox(height: FSizes.defaultBtwItems),
               //will send email to user , add email dynamic later
               Text(
-                'example@gmail.com',
+                email ?? '',
                 style: Theme.of(context).textTheme.labelLarge,
                 textAlign: TextAlign.center,
               ),
