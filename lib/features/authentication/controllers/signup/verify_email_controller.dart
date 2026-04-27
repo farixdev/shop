@@ -24,7 +24,7 @@ class VerifyEmailController extends GetxController {
   }
 
   //Send email verification link
-  sendEmailVerification() async {
+  Future<void> sendEmailVerification() async {
     try {
       await AuthenticationRepository.instance.sendEmailVerification();
       FLoaders.sucessSnackBar(
@@ -37,7 +37,7 @@ class VerifyEmailController extends GetxController {
   }
 
   //timer to automatically redirect on email verification
-  setTimerForAutoRedirect() {
+  void setTimerForAutoRedirect() {
     Timer.periodic(const Duration(seconds: 1), (timer) async {
       await FirebaseAuth.instance.currentUser?.reload();
       final user = FirebaseAuth.instance.currentUser;
@@ -56,4 +56,17 @@ class VerifyEmailController extends GetxController {
   }
 
   //Manually check if email is verified
+  checkEmailVerificationStatus() async {
+    final currentUser = FirebaseAuth.instance.currentUser;
+    if (currentUser != null && currentUser.emailVerified) {
+      Get.off(
+        () => SucessScreen(
+          title: FTexts.yourAccountCreatedTitle,
+          image: FImages.successImage,
+          subTitle: FTexts.yourAccountCreatedSubTitle,
+          onPressed: () => AuthenticationRepository.instance.screenRedirect(),
+        ),
+      );  
+    }
+  }
 }
