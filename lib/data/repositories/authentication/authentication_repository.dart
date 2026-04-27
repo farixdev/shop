@@ -1,15 +1,22 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:shop/data/repositories/authentication/authentication_exceptions.dart';
 import 'package:shop/features/authentication/screens/login/login.dart';
 import 'package:shop/features/authentication/screens/onboarding/onboarding.dart';
+import 'package:shop/utils/exceptions/firebase_exceptions.dart';
+import 'package:shop/utils/exceptions/format_exceptions.dart';
+import 'package:shop/utils/exceptions/platform_exceptions.dart';
 
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();
 
   //Variable
   final deviceStorage = GetStorage();
+  final _auth = FirebaseAuth.instance;
 
   //Called from main.dart on app launch
   @override
@@ -20,29 +27,54 @@ class AuthenticationRepository extends GetxController {
 
   //Function to show relevant screen
   screenRedirect() async {
-
-    if(kDebugMode)
-    {
+    if (kDebugMode) {
       print("======== get storage  Auth Repository =========");
       print(deviceStorage.read('isFirstTime'));
     }
     //Local Storage
     deviceStorage.writeIfNull('isFirstTime', true);
-    deviceStorage.read('isFirstTime') != true  ? Get.offAll(()=> LoginScreen()) : Get.offAll(OnBoardingScreen());
+    deviceStorage.read('isFirstTime') != true
+        ? Get.offAll(() => LoginScreen())
+        : Get.offAll(OnBoardingScreen());
   }
-
 
   //============= Email & password sign in ===============
 
   //[Email authentication] SignIn
   //[Email authentication] Register
+  Future<UserCredential> registerWithEmailAndPassword(String email , String password) async
+  {
+    try{
+      return await _auth.createUserWithEmailAndPassword(email: email, password: password);
+    } on FirebaseAuthException catch (e)
+    {
+      throw FFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e)
+    {
+      throw FFirebaseException(e.code).message;
+    }on FormatException catch(_)
+    {
+      throw const FFormateException();
+    } on PlatformException catch (e)
+    {
+      throw FPlatformException(e.code).message;
+    } catch (e)
+    {
+      throw 'Something went wrong. Please Try Again';
+    }
+  }
+
+
   //[Email authentication] Mail Verification
   //[Re authentication] Forget password
 
-  
   //============= Federated indentity AND social   sign in ===============
 
-   //[Google authentication] Google
+  //[Google authentication] Google
   //[Facebook authentication] Facebook
 
+  //=============./end Federated indentity AND social   sign in ===============
+
+  //[Logout User] valid for any authentication
+  //[Delete user] remove user auth and firestore account
 }
