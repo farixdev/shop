@@ -89,7 +89,7 @@ class SignupController extends GetxController {
       );
 
       ///Move to verufy email screen
-      Get.to(() => const VerifyEmailScreen());
+      Get.to(() =>  VerifyEmailScreen(email: email.text.trim() ,));
     } catch (e) {
       //Remove Loader
       FFullScreenLoader.stopLoading();
