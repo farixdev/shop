@@ -10,10 +10,12 @@ import 'package:shop/utils/constants/text_strings.dart';
 import 'package:shop/utils/helpers/helper_functions.dart';
 
 class VerifyEmailScreen extends StatelessWidget {
-  const VerifyEmailScreen({super.key});
+  const VerifyEmailScreen({super.key,  this.email});
 
+  final String? email;
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(VerifyEmailScreen());
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -64,7 +66,7 @@ class VerifyEmailScreen extends StatelessWidget {
                   onPressed: () => Get.to(
                     () => SucessScreen(
                       image: FImages.successImage,
-                      title: FTexts.yourAccountCreatedTitle, 
+                      title: FTexts.yourAccountCreatedTitle,
                       subTitle: FTexts.yourAccountCreatedSubTitle,
                       onPressed: () => Get.to(() => const LoginScreen()),
                     ),
