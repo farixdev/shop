@@ -4,9 +4,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:shop/data/repositories/authentication/authentication_exceptions.dart';
+
 import 'package:shop/features/authentication/screens/login/login.dart';
 import 'package:shop/features/authentication/screens/onboarding/onboarding.dart';
+import 'package:shop/utils/exceptions/firebase_auth_exceptions.dart';
 import 'package:shop/utils/exceptions/firebase_exceptions.dart';
 import 'package:shop/utils/exceptions/format_exceptions.dart';
 import 'package:shop/utils/exceptions/platform_exceptions.dart';
@@ -66,6 +67,27 @@ class AuthenticationRepository extends GetxController {
 
 
   //[Email authentication] Mail Verification
+  Future<void>   sendEmailVerification() async
+  {
+    try{
+      return await _auth.currentUser?.sendEmailVerification();
+    } on FirebaseAuthException catch (e)
+    {
+      throw FFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e)
+    {
+      throw FFirebaseException(e.code).message;
+    }on FormatException catch(_)
+    {
+      throw const FFormateException();
+    } on PlatformException catch (e)
+    {
+      throw FPlatformException(e.code).message;
+    } catch (e)
+    {  
+      throw 'Something went wrong. Please Try Again';
+    }
+  }
   //[Re authentication] Forget password
 
   //============= Federated indentity AND social   sign in ===============
