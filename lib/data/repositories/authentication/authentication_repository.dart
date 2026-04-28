@@ -49,12 +49,12 @@ class AuthenticationRepository extends GetxController {
   //============= Email & password sign in ===============
 
   //[Email authentication] SignIn
-   Future<UserCredential> loginWithEmailAndPassword(
+  Future<UserCredential> loginWithEmailAndPassword(
     String email,
     String password,
   ) async {
     try {
-      return await _auth.signInWithEmailAndPassword (
+      return await _auth.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -70,6 +70,7 @@ class AuthenticationRepository extends GetxController {
       throw 'Something went wrong. Please Try Again';
     }
   }
+
   //[Email authentication] Register
   Future<UserCredential> registerWithEmailAndPassword(
     String email,
@@ -114,6 +115,23 @@ class AuthenticationRepository extends GetxController {
   //============= Federated indentity AND social   sign in ===============
 
   //[Google authentication] Google
+
+  Future<void> SignInWithGoogle() async {
+    try {
+      await _auth.currentUser?.sendEmailVerification();
+    } on FirebaseAuthException catch (e) {
+      throw FFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw FFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const FFormateException();
+    } on PlatformException catch (e) {
+      throw FPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please Try Again : $e';
+      
+    }
+  }
   //[Facebook authentication] Facebook
 
   //=============./end Federated indentity AND social   sign in ===============
