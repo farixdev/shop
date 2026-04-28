@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
+import 'package:shop/features/authentication/controllers/forget_password/forget_password_controller.dart';
+import 'package:shop/features/authentication/screens/login/login.dart';
 
 import 'package:shop/utils/constants/image_strings.dart';
 import 'package:shop/utils/constants/sizes.dart';
@@ -39,7 +41,7 @@ class ResetPassword extends StatelessWidget {
 
               Text(
                 email,
-                style: Theme.of(context).textTheme.bodyMedium,
+                style: Theme.of(context).textTheme.bodyMedium ,
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: FSizes.defaultBtwItems),
@@ -62,7 +64,7 @@ class ResetPassword extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: ()=>Get.offAll(()=> LoginScreen()),
                   child: const Text(FTexts.done),
                 ),
               ),
@@ -70,7 +72,7 @@ class ResetPassword extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () => ForgetPasswordController.instance.resendSendPasswordResetEmail(email),
                   child: const Text(FTexts.resendEmail),
                 ),
               ),
