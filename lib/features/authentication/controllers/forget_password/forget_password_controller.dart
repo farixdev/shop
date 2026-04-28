@@ -59,6 +59,45 @@ class ForgetPasswordController extends GetxController {
   }
 
   resendSendPasswordResetEmail() async {
-    try {} catch (e) {}
+    try {
+      //start loading
+      FFullScreenLoader.openLoadingDialog(
+        'Processing your request',
+        FImages.loader,
+      );
+
+      //check internet connection
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) {
+        FFullScreenLoader.stopLoading();
+        return;
+      }
+
+      //form validation
+      if (!forgotPasswordFormKey.currentState!.validate()) {
+        FFullScreenLoader.stopLoading();
+        return;
+      }
+
+      await AuthenticationRepository.instance.sendPasswordResetEmail(
+        email.text.trim(),
+      );
+
+      //remove loader
+      FFullScreenLoader.stopLoading();
+
+      //show sucess screen
+      FLoaders.sucessSnackBar(
+        title: 'Email Sent',
+        message: 'Please check your inbox and verify your email',
+      );
+
+      //Redirect
+      Get.to(() => ResetPassword(email: email.text.trim()));
+    } catch (e) {
+      //remove loader
+      FFullScreenLoader.stopLoading();
+      FLoaders.erroSnackBar(title: 'oh Snap!', message: e.toString());
+    }
   }
 }
