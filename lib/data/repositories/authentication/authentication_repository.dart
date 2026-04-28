@@ -130,15 +130,11 @@ class AuthenticationRepository extends GetxController {
       //create a new credential
       final credentials = GoogleAuthProvider.credential(
         accessToken: googleAuth?.accessToken,
-        idToken: googleAuth?.idToken,  
+        idToken: googleAuth?.idToken,
       );
 
       //once signed in , return the usercredentials
-      return await _auth  .signInWithCredential(credentials);
-      
- 
-
-
+      return await _auth.signInWithCredential(credentials);
     } on FirebaseAuthException catch (e) {
       throw FFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {
@@ -162,6 +158,7 @@ class AuthenticationRepository extends GetxController {
   //[Logout User] valid for any authentication
   Future<void> logout() async {
     try {
+      await GoogleSignIn().signOut();
       await FirebaseAuth.instance.signOut();
       Get.offAll(() => LoginScreen());
     } on FirebaseAuthException catch (e) {
