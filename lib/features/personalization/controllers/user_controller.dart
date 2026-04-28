@@ -7,6 +7,7 @@ import 'package:shop/utils/popups/loaders.dart';
 class UserController extends GetxController {
   static UserController get to => Get.find();
 
+  final profileLoading = false.obs;
   Rx<UserModel?> user = UserModel.empty().obs;
   final userRepositry = Get.put(UserRepositry());
 
@@ -18,10 +19,14 @@ class UserController extends GetxController {
 
   Future<void> fetchUserRecord() async {
     try {
+      profileLoading.value = true;
       final user = await userRepositry.fetchUserDetails();
       this.user(user);
+      profileLoading.value = false;
     } catch (e) {
       user(UserModel.empty());
+    } finally{
+      profileLoading.value = false;
     }
   }
 
