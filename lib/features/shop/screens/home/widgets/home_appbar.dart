@@ -5,6 +5,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:shop/common/widgets/appbar/appbar.dart';
 
 import 'package:shop/common/widgets/products/cart/cart_menu_icon.dart';
+import 'package:shop/common/widgets/shimmer/shimmer.dart';
 import 'package:shop/features/personalization/controllers/user_controller.dart';
 import 'package:shop/utils/constants/colors.dart';
 import 'package:shop/utils/constants/text_strings.dart';
@@ -25,12 +26,18 @@ class FHomeAppBar extends StatelessWidget {
               context,
             ).textTheme.labelMedium!.apply(color: FColors.grey),
           ),
-          Text(
-            FTexts.homeAppBarSubTitle,
-            style: Theme.of(
-              context,
-            ).textTheme.headlineSmall!.apply(color: FColors.white),
-          ),
+          Obx(() {
+            if (controller.profileLoading.value) {
+              return const FShimmerEffect(width: 80, height: 15);
+            } else {
+              return Text(
+                controller.user.value!.fullName,
+                style: Theme.of(
+                  context,
+                ).textTheme.headlineSmall!.apply(color: FColors.white),
+              );
+            }
+          }),
         ],
       ),
       actions: [FCartCounterIcon(onPressed: () {}, iconColor: FColors.white)],

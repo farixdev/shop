@@ -73,8 +73,6 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
-            
-
             //body
 
             //carousel
@@ -92,12 +90,18 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(height: FSizes.defaultBtwSections),
 
                   //heading
-                  FSectionHeading(title: 'Popular Products', onPressed: ()=> Get.to(() => AllProduct()) , showActionButton: true),
+                  FSectionHeading(
+                    title: 'Popular Products',
+                    onPressed: () => Get.to(() => AllProduct()),
+                    showActionButton: true,
+                  ),
                   const SizedBox(height: FSizes.defaultBtwItems),
 
                   //POPULAR PRODUCTS
-                  FGridLayout(itemCount: 4, itemBuilder: (_, index) => FProductCardVertical(),)
-                  ,
+                  FGridLayout(
+                    itemCount: 4,
+                    itemBuilder: (_, index) => FProductCardVertical(),
+                  ),
                 ],
               ),
             ),
@@ -107,4 +111,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-

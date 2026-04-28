@@ -21,7 +21,7 @@ class UserModel {
   });
 
   //Helper funtion to get the full name
-  String get fullnName => '$firstName $lastName';
+  String get fullName => '$firstName $lastName';
 
   //Helper function to formate phone Number
   String get formattedPhoneNo => FFormatter.formatePhoneNumber(phoneNumber);
