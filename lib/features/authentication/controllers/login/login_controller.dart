@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:shop/data/repositories/authentication/authentication_repository.dart';
+import 'package:shop/features/personalization/controllers/user_controller.dart';
 import 'package:shop/utils/constants/image_strings.dart';
 import 'package:shop/utils/network/network_manager.dart';
 import 'package:shop/utils/popups/full_screen_loader.dart';
@@ -16,6 +17,7 @@ class LoginController extends GetxController {
   final password = TextEditingController();
 
   GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
+  final userController = Get.put(UserController());
 
   @override
   @override
@@ -77,7 +79,23 @@ class LoginController extends GetxController {
         FFullScreenLoader.stopLoading();
         return;
       }
+
+      //google authentication
+      final userCredentials = await AuthenticationRepository.instance
+          .signInWithGoogle();
+
+      //save user record
+      await userController.saveUserRecord(userCredentials);
+
+
+      //Remove Loader
+      FFullScreenLoader.stopLoading();  
+
+      //redirect
+      AuthenticationRepository.instance.screenRedirect();
     } catch (e) {
+      //Remove Loader
+      FFullScreenLoader.stopLoading();  
       FLoaders.erroSnackBar(title: 'oh Snap!', message: e.toString());
     }
   }
