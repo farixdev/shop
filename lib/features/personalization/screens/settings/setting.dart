@@ -9,6 +9,7 @@ import 'package:shop/common/widgets/custom_shapes/containers/primary_header_cont
 import 'package:shop/common/widgets/list_tiles/setting_menu_tiles.dart';
 import 'package:shop/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:shop/common/widgets/texts/section_heading.dart';
+import 'package:shop/features/authentication/screens/login/login.dart';
 import 'package:shop/features/personalization/screens/address/address.dart';
 import 'package:shop/features/personalization/screens/profile/profile.dart';
 import 'package:shop/features/shop/screens/order/order.dart';
@@ -130,13 +131,13 @@ class SettingScreen extends StatelessWidget {
                     subTitle: 'Set image quality to be seen',
                     trailing: Switch(value: false, onChanged: (value) {}),
                   ),
-
+      
                   //logout button
                   const SizedBox(height: FSizes.defaultBtwSections),
                   SizedBox(
                     width: double.infinity,
                     child: OutlinedButton(
-                      onPressed: () {},
+                      onPressed: () => Get.offAll(()=> LoginScreen()),
                       style: OutlinedButton.styleFrom(
                         side: BorderSide(
                           color: dark ? FColors.white : FColors.fprimaryColor,
