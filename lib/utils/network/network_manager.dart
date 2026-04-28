@@ -21,11 +21,6 @@ class NetworkManager extends GetxController {
     );
   }
 
-  @override
-  void onClose() {
-    _connectivitySubscription.cancel();
-    super.onClose();
-  }
 
   //update the connectivity status based on change in connectivity and show a relevant popup for no internet connection
   void _updateConnectionStatus(List<ConnectivityResult> result) {
@@ -50,5 +45,12 @@ class NetworkManager extends GetxController {
     } on PlatformException catch (_) {
       return false;
     }
+  }
+
+  
+  @override
+  void onClose() {
+    _connectivitySubscription.cancel();
+    super.onClose();
   }
 }
