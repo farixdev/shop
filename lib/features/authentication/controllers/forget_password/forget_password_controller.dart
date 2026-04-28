@@ -46,7 +46,7 @@ class ForgetPasswordController extends GetxController {
       //show sucess screen
       FLoaders.sucessSnackBar(
         title: 'Email Sent',
-        message: 'Please check your inbox and verify your email',
+        message: 'Please check your inbox and verify your email'.tr,
       );
 
       //Redirect
