@@ -1,9 +1,11 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:shop/data/repositories/authentication/authentication_repository.dart';
+import 'package:shop/features/authentication/screens/password_configuration/reset_password.dart';
 import 'package:shop/utils/constants/image_strings.dart';
 import 'package:shop/utils/network/network_manager.dart';
 import 'package:shop/utils/popups/full_screen_loader.dart';
+import 'package:shop/utils/popups/loaders.dart';
 
 class ForgetPasswordController extends GetxController {
   static ForgetPasswordController instance = Get.find();
@@ -33,13 +35,27 @@ class ForgetPasswordController extends GetxController {
         FFullScreenLoader.stopLoading();
         return;
       }
-      
-      await AuthenticationRepository.instance.sendPasswordResetEmail(email.text.trim());  
+
+      await AuthenticationRepository.instance.sendPasswordResetEmail(
+        email.text.trim(),
+      );
 
       //remove loader
-      FFullScreenLoader.stopLoading();  
+      FFullScreenLoader.stopLoading();
 
-    } catch (e) {}
+      //show sucess screen
+      FLoaders.sucessSnackBar(
+        title: 'Email Sent',
+        message: 'Please check your inbox and verify your email',
+      );
+
+      //Redirect
+      Get.to(() => ResetPassword(email: email.text.trim()));
+    } catch (e) {
+      //remove loader
+      FFullScreenLoader.stopLoading();
+      FLoaders.erroSnackBar(title: 'oh Snap!', message: e.toString());
+    }
   }
 
   resendSendPasswordResetEmail() async {
