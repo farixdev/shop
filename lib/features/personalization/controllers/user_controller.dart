@@ -9,6 +9,12 @@ class UserController extends GetxController {
 
   final userRepositry = Get.put(UserRepositry());
 
+  @override
+  void onInit() {
+    super.onInit();
+    
+  }
+
   //save user record from and Registration provider
   Future<void> saveUserRecord(UserCredential? userCredentials) async {
     try {
