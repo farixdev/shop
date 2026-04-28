@@ -58,7 +58,7 @@ class ForgetPasswordController extends GetxController {
     }
   }
 
-  resendSendPasswordResetEmail() async {
+  resendSendPasswordResetEmail(String email) async {
     try {
       //start loading
       FFullScreenLoader.openLoadingDialog(
@@ -73,14 +73,9 @@ class ForgetPasswordController extends GetxController {
         return;
       }
 
-      //form validation
-      if (!forgotPasswordFormKey.currentState!.validate()) {
-        FFullScreenLoader.stopLoading();
-        return;
-      }
-
+     
       await AuthenticationRepository.instance.sendPasswordResetEmail(
-        email.text.trim(),
+        email,
       );
 
       //remove loader
@@ -92,8 +87,7 @@ class ForgetPasswordController extends GetxController {
         message: 'Please check your inbox and verify your email',
       );
 
-      //Redirect
-      Get.to(() => ResetPassword(email: email.text.trim()));
+   
     } catch (e) {
       //remove loader
       FFullScreenLoader.stopLoading();
