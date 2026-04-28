@@ -64,4 +64,21 @@ class LoginController extends GetxController {
       FLoaders.erroSnackBar(title: 'oh snao', message: e.toString());
     }
   }
+
+  //Google SignIn authentication
+  Future<void> googleSignIn() async {
+    try {
+      //Start loading
+      FFullScreenLoader.openLoadingDialog('Logging you in...', FImages.loader);
+
+      //Check the internet connectivity
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) {
+        FFullScreenLoader.stopLoading();
+        return;
+      }
+    } catch (e) {
+      FLoaders.erroSnackBar(title: 'oh Snap!', message: e.toString());
+    }
+  }
 }
