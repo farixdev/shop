@@ -1,9 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 import 'package:shop/features/authentication/screens/login/login.dart';
 import 'package:shop/features/authentication/screens/onboarding/onboarding.dart';
@@ -116,9 +118,27 @@ class AuthenticationRepository extends GetxController {
 
   //[Google authentication] Google
 
-  Future<void> SignInWithGoogle() async {
+  Future<UserCredential?> signInWithGoogle() async {
     try {
-      await _auth.currentUser?.sendEmailVerification();
+      //trigger the authentication flow
+      final GoogleSignInAccount? userAccount = await GoogleSignIn().signIn();
+
+      //obtain the auth detail form the request
+      final GoogleSignInAuthentication? googleAuth =
+          await userAccount?.authentication;
+
+      //create a new credential
+      final credentials = GoogleAuthProvider.credential(
+        accessToken: googleAuth?.accessToken,
+        idToken: googleAuth?.idToken,  
+      );
+
+      //once signed in , return the usercredentials
+      return await _auth  .signInWithCredential(credentials);
+      
+ 
+
+
     } on FirebaseAuthException catch (e) {
       throw FFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {
@@ -128,9 +148,12 @@ class AuthenticationRepository extends GetxController {
     } on PlatformException catch (e) {
       throw FPlatformException(e.code).message;
     } catch (e) {
-      throw 'Something went wrong. Please Try Again : $e';
-      
+      if (kDebugMode) {
+        print('Something went wrong. Please Try Again $e');
+        return null;
+      }
     }
+    return null;
   }
   //[Facebook authentication] Facebook
 
