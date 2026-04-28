@@ -1,15 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-import 'package:get/utils.dart';
-import 'package:shop/features/authentication/screens/login/login.dart';
+
 import 'package:shop/utils/constants/image_strings.dart';
 import 'package:shop/utils/constants/sizes.dart';
 import 'package:shop/utils/constants/text_strings.dart';
 import 'package:shop/utils/helpers/helper_functions.dart';
 
 class ResetPassword extends StatelessWidget {
-  const ResetPassword({super.key});
+  const ResetPassword({super.key, required this.email});
+
+  final String email;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class ResetPassword extends StatelessWidget {
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-            onPressed: () => Get.to(() => const LoginScreen()),
+            onPressed: () => Get.back(),
             icon: Icon(CupertinoIcons.clear),
           ),
         ],
@@ -35,6 +36,14 @@ class ResetPassword extends StatelessWidget {
               ),
               const SizedBox(height: FSizes.defaultBtwSections),
               //Title & Subtitle
+
+              Text(
+                email,
+                style: Theme.of(context).textTheme.bodyMedium,
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: FSizes.defaultBtwItems),
+
               Text(
                 FTexts.changeYourPasswordTitle,
                 style: Theme.of(context).textTheme.headlineMedium,
