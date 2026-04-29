@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart ';
-import 'package:get/route_manager.dart';
+import 'package:get/get.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import 'package:shop/common/styles/shadows.dart';
@@ -17,14 +17,22 @@ import 'package:shop/utils/constants/image_strings.dart';
 import 'package:shop/utils/constants/sizes.dart';
 import 'package:shop/utils/helpers/helper_functions.dart';
 
+import 'package:shop/features/shop/models/product_model.dart';
+
+import 'package:shop/features/shop/controllers/favorites_controller.dart';
+import 'package:shop/features/shop/controllers/cart_controller.dart';
+
 class FProductCardVertical extends StatelessWidget {
-  const FProductCardVertical({super.key});
+  const FProductCardVertical({super.key, required this.product});
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(FavoritesController());
     final dark = FHelperFunctions.isDarkMode(context);
     return GestureDetector(
-      onTap: () => Get.to(() => ProductDetailScreen()),
+      onTap: () => Get.to(() => ProductDetailScreen(product: product)),
       child: Container(
         width: 180,
         padding: const EdgeInsets.all(1),
@@ -44,42 +52,44 @@ class FProductCardVertical extends StatelessWidget {
                 children: [
                   //-Thumbnail Image
                   FRoundedImage(
-                    imageUrl: FImages.tshirt1,
+                    imageUrl: product.thumbnail,
                     applyImageRadius: true,
+                    isNetworkImage: true,
                     fit: BoxFit.cover,
                     width: double.infinity,
                     height: double.infinity,
                   ),
 
                   //Sale Tag
-                  Positioned(
-                    top: 12,
-                    left: 6,
-                    child: FRoundedContainer(
-                      radius: FSizes.sm,
-                      // ignore: deprecated_member_use
-                      backgroundColor: FColors.secondary.withOpacity(0.8),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: FSizes.sm,
-                        vertical: FSizes.xs,
-                      ),
-                      child: Text(
-                        '20%',
-                        style: Theme.of(
-                          context,
-                        ).textTheme.labelLarge!.apply(color: FColors.black),
+                  if (product.salePrice > 0)
+                    Positioned(
+                      top: 12,
+                      left: 6,
+                      child: FRoundedContainer(
+                        radius: FSizes.sm,
+                        backgroundColor: FColors.secondary.withOpacity(0.8),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: FSizes.sm,
+                          vertical: FSizes.xs,
+                        ),
+                        child: Text(
+                          '${((1 - (product.salePrice / product.price)) * 100).toStringAsFixed(0)}%',
+                          style: Theme.of(
+                            context,
+                          ).textTheme.labelLarge!.apply(color: FColors.black),
+                        ),
                       ),
                     ),
-                  ),
 
                   //favourite Icon Button
                   Positioned(
                     top: 0,
                     right: 0,
-                    child: FCircularIcon(
-                      icon: Iconsax.heart,
-                      color: Colors.red,
-                    ),
+                    child: Obx(() => FCircularIcon(
+                      icon: controller.isFavourite(product.id) ? Iconsax.heart : Iconsax.heart,
+                      color: controller.isFavourite(product.id) ? Colors.red : null,
+                      onPressed: () => controller.toggleFavoriteProduct(product.id),
+                    )),
                   ),
                 ],
               ),
@@ -92,9 +102,9 @@ class FProductCardVertical extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  FProductTitleText(title: 'T-Shirt Black', smallSize: true),
+                  FProductTitleText(title: product.title, smallSize: true),
                   SizedBox(height: FSizes.defaultBtwItems / 2),
-                  FBrandTitleTextWithVerifiedIcon(title: 'Nike', textAlign: TextAlign.left,)
+                  FBrandTitleTextWithVerifiedIcon(title: product.brand, textAlign: TextAlign.left,)
                 ],
               ),
             ),
@@ -107,26 +117,34 @@ class FProductCardVertical extends StatelessWidget {
               children: [
                 //price
                 Padding(
-                  padding: EdgeInsetsGeometry.only(left: FSizes.sm),
-                  child: FProductPriceText(price: '600'),
+                  padding: EdgeInsets.only(left: FSizes.sm),
+                  child: FProductPriceText(price: product.price.toString()),
                   ),
+
+
 
                 //Add to cart button
-                Container(
-                  decoration: BoxDecoration(
-                    color: FColors.dark,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(FSizes.cardRadiusMd),
-                      bottomRight: Radius.circular(FSizes.productImageRadius),
+                GestureDetector(
+                  onTap: () => Get.put(CartController()).addProductToCart(product),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: FColors.dark,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(FSizes.cardRadiusMd),
+                        bottomRight: Radius.circular(FSizes.productImageRadius),
+                      ),
                     ),
-                  ),
-
-                  child: SizedBox(
-                    width: FSizes.iconLg * 1.2,
-                    height: FSizes.iconLg * 1.2,
-
-                    child: Center(
-                      child: Icon(Iconsax.add_circle, color: FColors.white),
+                    child: SizedBox(
+                      width: FSizes.iconLg * 1.2,
+                      height: FSizes.iconLg * 1.2,
+                      child: Center(
+                        child: Obx(() {
+                          final count = Get.put(CartController()).getProductQuantityInCart(product.id);
+                          return count > 0 
+                            ? Text('$count', style: Theme.of(context).textTheme.bodyLarge!.apply(color: FColors.white))
+                            : const Icon(Iconsax.add_circle, color: FColors.white);
+                        }),
+                      ),
                     ),
                   ),
                 ),
