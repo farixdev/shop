@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop/common/widgets/images/circular_image.dart';
 
 import 'package:shop/utils/constants/colors.dart';
 
@@ -6,18 +7,20 @@ import 'package:shop/utils/constants/sizes.dart';
 import 'package:shop/utils/helpers/helper_functions.dart';
 
 class FVerticalImageText extends StatelessWidget {
-  const  FVerticalImageText({
+  const FVerticalImageText({
     super.key,
     required this.image,
     required this.title,
     this.textColor = FColors.white,
     this.backgroundColor = Colors.white,
-    this.onTap,
+    this.onTap, 
+     this.isNetworkImage = true,
   });
 
   final String image, title;
   final Color textColor;
   final Color? backgroundColor;
+  final bool isNetworkImage;
   final void Function()? onTap;
 
   @override
@@ -30,18 +33,12 @@ class FVerticalImageText extends StatelessWidget {
         child: Column(
           children: [
             //circular icon
-            Container(
-              width: 56,
-              height: 56,
-              padding: EdgeInsets.all(FSizes.sm),
-              decoration: BoxDecoration(
-                color:
-                    backgroundColor ?? (dark ? FColors.black : FColors.white),
-                borderRadius: BorderRadius.circular(100),
-              ),
-              child: Center(
-                child: Image(image: AssetImage(image), fit: BoxFit.cover),
-              ),
+            FCircularImage(image: image,
+            fit: BoxFit.fitWidth,
+            padding: FSizes.sm * 1.4,
+            isNetworkImage: isNetworkImage,
+            backgroundColor: backgroundColor,
+            overlayColor: dark? FColors.light : FColors.dark,
             ),
             //Text
             const SizedBox(height: FSizes.defaultBtwItems / 2),
