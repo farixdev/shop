@@ -58,7 +58,7 @@ class UserModel {
     return {
       'FirstName': firstName,
       'LastName': lastName,
-      'Username': username,
+      'UserName': username,
       'Email': email,
       'PhoneNumber': phoneNumber,
       'ProfilePicture': profilePicture,
