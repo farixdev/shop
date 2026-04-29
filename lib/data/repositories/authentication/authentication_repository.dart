@@ -6,6 +6,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:shop/data/repositories/user/user_repositry.dart';
 
 import 'package:shop/features/authentication/screens/login/login.dart';
 import 'package:shop/features/authentication/screens/onboarding/onboarding.dart';
@@ -132,6 +133,31 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
+  //[Re authrnticate user] Re authentication of user
+  Future<void> reAuthenticateUserWithEmailAndPassword(
+    String email,
+    String password,
+  ) async {
+    try {
+      //Create a credential
+      AuthCredential credential = EmailAuthProvider.credential(
+        email: email,
+        password: password,
+      );
+      await _auth.currentUser!.reauthenticateWithCredential(credential);
+    } on FirebaseAuthException catch (e) {
+      throw FFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw FFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const FFormateException();
+    } on PlatformException catch (e) {
+      throw FPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please Try Again';
+    }
+  }
+
   //============= Federated indentity AND social   sign in ===============
 
   //[Google authentication] Google
@@ -193,4 +219,21 @@ class AuthenticationRepository extends GetxController {
   }
 
   //[Delete user] remove user auth and firestore account
+
+  Future<void> deleteAccount() async {
+    try {
+      await UserRepositry.instance.removeUserRecord(_auth.currentUser!.uid);
+      await _auth.currentUser?.delete();
+    } on FirebaseAuthException catch (e) {
+      throw FFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw FFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const FFormateException();
+    } on PlatformException catch (e) {
+      throw FPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please Try Again';
+    }
+  }
 }
