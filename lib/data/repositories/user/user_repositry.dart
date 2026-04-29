@@ -1,7 +1,11 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 
 import 'package:shop/data/repositories/authentication/authentication_repository.dart';
 
@@ -74,7 +78,10 @@ class UserRepositry extends GetxController {
   //update any field in specific user collection
   Future<void> updateSingleField(Map<String, dynamic> json) async {
     try {
-      await _db.collection("Users").doc(AuthenticationRepository.instance.authUser?.uid).update(json);
+      await _db
+          .collection("Users")
+          .doc(AuthenticationRepository.instance.authUser?.uid)
+          .update(json);
     } on FirebaseException catch (e) {
       throw FFirebaseException(e.code).message;
     } on FormatException catch (_) {
@@ -87,7 +94,7 @@ class UserRepositry extends GetxController {
   }
 
   //function to remove user data from firestore
-    Future<void> removeUserRecord(String userId) async {
+  Future<void> removeUserRecord(String userId) async {
     try {
       await _db.collection("Users").doc(userId).delete();
     } on FirebaseException catch (e) {
@@ -101,5 +108,22 @@ class UserRepositry extends GetxController {
     }
   }
 
-  
+  //upload any image
+  Future<String> uploadImage(String path, XFile image) async {
+    try {
+      final ref = FirebaseStorage.instance.ref(path).child(image.name);
+      await ref.putFile(File(image.path));
+
+      final url = await ref.getDownloadURL();
+      return url;
+    } on FirebaseException catch (e) {
+      throw FFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const FFormateException();
+    } on PlatformException catch (e) {
+      throw FPlatformException(e.code).message;
+    } catch (e) {
+      throw "Something went wrong. Please Try Again";
+    }
+  }
 }
