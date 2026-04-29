@@ -11,18 +11,18 @@ import 'package:shop/utils/constants/image_strings.dart';
 
 import 'package:shop/utils/constants/sizes.dart';
 import 'package:shop/utils/helpers/helper_functions.dart';
+import 'package:shop/features/shop/models/brand_model.dart';
 
 class FBrandCard extends StatelessWidget {
   const FBrandCard({
     super.key,
+    required this.brand,
     this.showBorder = true,
-    this.productCount = '0',
-    this.brandName = 'Nike', this.onTap,
+    this.onTap,
   });
 
+  final BrandModel brand;
   final bool showBorder;
-  final String productCount;
-  final String brandName;
   final void Function()? onTap;
 
   @override
@@ -39,13 +39,14 @@ class FBrandCard extends StatelessWidget {
             ///-Icon
             Flexible(
               child: FCircularImage(
-                image: FImages.phoneIcon,
+                image: brand.image,
+                isNetworkImage: true,
                 backgroundColor: Colors.transparent,
                 overlayColor: dark ? FColors.white : FColors.black,
               ),
             ),
 
-            const SizedBox(height: FSizes.defaultBtwItems / 1.5),
+            const SizedBox(width: FSizes.defaultBtwItems / 2),
 
             ///-Text
             Expanded(
@@ -54,11 +55,11 @@ class FBrandCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   FBrandTitleTextWithVerifiedIcon(
-                    title: brandName,
+                    title: brand.name,
                     brandTextSize: TextSizes.large,
                   ),
                   Text(
-                    '$productCount Products',
+                    '${brand.productsCount ?? 0} Products',
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.labelMedium,
                   ),
