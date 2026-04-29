@@ -51,9 +51,9 @@ class LoginController extends GetxController {
         localStorage.write('REMEMBER_ME_PASSWORD', password.text.trim());
       }
 
-      //LOGIN USER using email and password authentication
-      //final userCredential = await AuthenticationRepository.instance
-      //.loginWithEmailAndPassword(email.text.trim(), password.text.trim());
+      // LOGIN USER using email and password authentication
+      final userCredential = await AuthenticationRepository.instance
+      .loginWithEmailAndPassword(email.text.trim(), password.text.trim());
 
       //Remove Loader
 
