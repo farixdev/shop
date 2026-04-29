@@ -48,21 +48,7 @@ class HomeScreen extends StatelessWidget {
                         const SizedBox(height: FSizes.defaultBtwItems),
                         //catogery
                         FHomeCategory(
-                          categories: [
-                            {'title': 'Sports', 'image': FImages.bowlingIcon},
-                            {'title': 'Chair', 'image': FImages.chairIcon},
-                            {
-                              'title': 'Beauty',
-                              'image': FImages.cosemeticsIcon,
-                            },
-                            {
-                              'title': 'Jewellery',
-                              'image': FImages.diamondIcon,
-                            },
-                            {'title': 'Gadgets', 'image': FImages.phoneIcon},
-                            {'title': 'Toys', 'image': FImages.toyCarIcon},
-                            {'title': 'Shoes', 'image': FImages.womenShoesIcon},
-                          ],
+                         
                         ),
                         const SizedBox(height: FSizes.defaultBtwSections),
                         const SizedBox(height: FSizes.defaultBtwItems),
