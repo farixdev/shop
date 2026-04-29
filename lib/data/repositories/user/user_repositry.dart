@@ -129,4 +129,41 @@ class UserRepositry extends GetxController {
       throw "Something went wrong. Please Try Again";
     }
   }
+
+  /// One-time setup: seeds admin credentials into Firestore
+  /// Call this ONCE (e.g. from a button or on first run) to create the admin record
+  Future<void> seedAdminCredentials(String adminEmail) async {
+    try {
+      await _db.collection('Settings').doc('AdminCredentials').set({
+        'AdminEmail': adminEmail,
+      });
+    } catch (e) {
+      throw 'Failed to seed admin credentials: $e';
+    }
+  }
+
+  /// Check if the given email is the admin email stored in Firestore
+  Future<bool> isAdminEmail(String email) async {
+    try {
+      final doc = await _db.collection('Settings').doc('AdminCredentials').get();
+      if (doc.exists) {
+        final adminEmail = doc.data()?['AdminEmail'] ?? '';
+        return email.toLowerCase() == adminEmail.toString().toLowerCase();
+      }
+      return false;
+    } catch (e) {
+      return false;
+    }
+  }
+  /// Fetch all users for Admin
+  Future<List<UserModel>> fetchAllUsers() async {
+    try {
+      final snapshot = await _db.collection("Users").get();
+      return snapshot.docs.map((doc) => UserModel.fromSnapshot(doc)).toList();
+    } on FirebaseException catch (e) {
+      throw FFirebaseException(e.code).message;
+    } catch (e) {
+      throw "Something went wrong. Please Try Again";
+    }
+  }
 }

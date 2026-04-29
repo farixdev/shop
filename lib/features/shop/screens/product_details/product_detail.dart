@@ -15,8 +15,12 @@ import 'package:shop/features/shop/screens/product_reviews/product_review.dart';
 import 'package:shop/utils/constants/sizes.dart';
 
 
+import 'package:shop/features/shop/models/product_model.dart';
+
 class ProductDetailScreen extends StatelessWidget {
-  const ProductDetailScreen({super.key});
+  const ProductDetailScreen({super.key, required this.product});
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +31,7 @@ class ProductDetailScreen extends StatelessWidget {
         child: Column(
           children: [
             ///1-Product Image Slider
-            FProductImageSlider(),
+            FProductImageSlider(product: product),
 
             ///2- Product Details
             Padding(
@@ -37,7 +41,7 @@ class ProductDetailScreen extends StatelessWidget {
                   ///Rating & Share
                   FRatingAndShare(), 
                   ///Price, Title,Stock & Brand
-                  FProductMetaData(),
+                  FProductMetaData(product: product),
                   ///Attributes
                   ProductAttributes(),
                   const SizedBox(height: FSizes.defaultBtwSections,),
@@ -51,7 +55,7 @@ class ProductDetailScreen extends StatelessWidget {
                   const FSectionHeading(title: 'Description'),
                   const SizedBox(height: FSizes.defaultBtwItems,),
                   ReadMoreText(
-                    'This is product Description fot this specific product, There can be more things that can be added in this as per your need',
+                    product.description,
                     trimLines: 2,
                     trimMode: TrimMode.Line,
                     trimCollapsedText: 'Show more',

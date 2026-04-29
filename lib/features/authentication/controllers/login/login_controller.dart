@@ -52,11 +52,18 @@ class LoginController extends GetxController {
       }
 
       // LOGIN USER using email and password authentication
-      final userCredential = await AuthenticationRepository.instance
-      .loginWithEmailAndPassword(email.text.trim(), password.text.trim());
+      await AuthenticationRepository.instance
+          .loginWithEmailAndPassword(email.text.trim(), password.text.trim());
+
+      // Check if this user is the admin (fetched from Firestore, not hardcoded)
+      final isAdmin = await UserController.instance.userRepositry.isAdminEmail(email.text.trim());
+      if (isAdmin) {
+        await UserController.instance.updateSingleField({'Role': 'admin'});
+        UserController.instance.user.value!.role = 'admin';
+        UserController.instance.user.refresh();
+      }
 
       //Remove Loader
-
       FFullScreenLoader.stopLoading();
 
       //Redirect

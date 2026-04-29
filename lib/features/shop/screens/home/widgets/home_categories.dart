@@ -40,7 +40,7 @@ class FHomeCategory extends StatelessWidget {
             return FVerticalImageText(
               image: category.image,
               title: category.name,
-              onTap: () => Get.to(() => SubCategoriesScreen()),
+              onTap: () => Get.to(() => SubCategoriesScreen(category: category)),
             );
           },
         ),

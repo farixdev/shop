@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:get/get.dart';
 
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
@@ -13,6 +12,9 @@ import 'package:shop/features/authentication/screens/login/login.dart';
 import 'package:shop/features/personalization/screens/address/address.dart';
 import 'package:shop/features/personalization/screens/profile/profile.dart';
 import 'package:shop/features/shop/screens/order/order.dart';
+import 'package:shop/features/personalization/controllers/user_controller.dart';
+import 'package:shop/data/repositories/categories/category_repository.dart';
+import 'package:shop/features/shop/screens/admin/admin_panel.dart';
 
 import 'package:shop/utils/constants/colors.dart';
 
@@ -105,11 +107,19 @@ class SettingScreen extends StatelessWidget {
                   //--App Setings
                   SizedBox(height: FSizes.defaultBtwSections),
                   FSectionHeading(title: 'App Settings'),
-                  SettingMenuTile(
-                    icon: Iconsax.document_upload,
-                    title: 'Load Data',
-                    subTitle: 'Upload data to your cloud firebase ',
-                  ),
+
+                  Obx(() {
+                    if (UserController.instance.isAdmin) {
+                      return SettingMenuTile(
+                        icon: Iconsax.security_user,
+                        title: 'Admin Panel',
+                        subTitle: 'Manage Categories, Products and more',
+                        onTap: () => Get.to(() => const AdminPanelScreen()),
+                      );
+                    } else {
+                      return const SizedBox.shrink();
+                    }
+                  }),
 
                   SettingMenuTile(
                     icon: Iconsax.location,

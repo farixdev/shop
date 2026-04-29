@@ -11,16 +11,21 @@ import 'package:shop/utils/constants/image_strings.dart';
 import 'package:shop/utils/constants/sizes.dart';
 import 'package:shop/utils/helpers/helper_functions.dart';
 
+import 'package:shop/features/shop/models/product_model.dart';
+import 'package:get/get.dart';
+import 'package:shop/features/shop/controllers/favorites_controller.dart';
+
 class FProductImageSlider extends StatelessWidget {
   const FProductImageSlider({
     super.key,
-   
+    required this.product,
   });
 
-  
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(FavoritesController());
     final dark = FHelperFunctions.isDarkMode(context);
     return FCurveEdgeWidget(
       child: Container(
@@ -33,12 +38,12 @@ class FProductImageSlider extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(FSizes.productImageRadius * 2),
                 child: Center(
-                  child: Image(image: AssetImage(FImages.watch1)),
+                  child: Image(image: NetworkImage(product.thumbnail)),
                 ),
               ),
             ),
     
-            ///Image Slider
+            ///Image Slider (Currently only shows the thumbnail as the single image)
             Positioned(
               right: 0,
               bottom: 30,
@@ -48,18 +53,19 @@ class FProductImageSlider extends StatelessWidget {
                 child: ListView.separated(
                   separatorBuilder: (_, __) =>
                       const SizedBox(width: FSizes.defaultBtwItems),
-                  itemCount: 4,
+                  itemCount: 1,
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   physics: const AlwaysScrollableScrollPhysics(),
                   itemBuilder: (_, index) => FRoundedImage(
                     width: 80,
+                    isNetworkImage: true,
                     backgroundColor: dark
                         ? FColors.dark
                         : FColors.white,
                     border: Border.all(color: FColors.fprimaryColor),
                     padding: const EdgeInsets.all(FSizes.sm),
-                    imageUrl: FImages.tshirt1,
+                    imageUrl: product.thumbnail,
                   ),
                 ),
               ),
@@ -68,7 +74,11 @@ class FProductImageSlider extends StatelessWidget {
             FAppBar(
               showBackArrow: true,
               actions: [
-                FCircularIcon(icon: Iconsax.heart, color: Colors.red  ,)
+                Obx(() => FCircularIcon(
+                  icon: controller.isFavourite(product.id) ? Iconsax.heart : Iconsax.heart,
+                  color: controller.isFavourite(product.id) ? Colors.red : null,
+                  onPressed: () => controller.toggleFavoriteProduct(product.id),
+                )),
               ],
             )
           ],

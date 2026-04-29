@@ -19,6 +19,7 @@ class UserController extends GetxController {
 
   final profileLoading = false.obs;
   Rx<UserModel?> user = UserModel.empty().obs;
+  bool get isAdmin => user.value!.role == 'admin';
 
   final hidepassword = false.obs;
   final verifyEmail = TextEditingController();
@@ -110,6 +111,15 @@ class UserController extends GetxController {
         child: const Text('Cancel'),
       ),
     );
+  }
+
+  /// Update User Data
+  Future<void> updateSingleField(Map<String, dynamic> json) async {
+    try {
+      await userRepositry.updateSingleField(json);
+    } catch (e) {
+      FLoaders.erroSnackBar(title: 'Oh Snap!', message: e.toString());
+    }
   }
 
   //Delete User account

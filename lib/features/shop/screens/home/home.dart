@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
+import 'package:get/get.dart';
 
 import 'package:shop/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:shop/common/widgets/custom_shapes/containers/search_container.dart';
@@ -8,6 +8,7 @@ import 'package:shop/common/widgets/products/product_cards/product_card_vertical
 
 import 'package:shop/common/widgets/texts/section_heading.dart';
 import 'package:shop/features/shop/screens/all_products/all_products.dart';
+import 'package:shop/features/shop/screens/all_products/search.dart';
 import 'package:shop/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:shop/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:shop/features/shop/screens/home/widgets/promo_slider.dart';
@@ -16,11 +17,15 @@ import 'package:shop/utils/constants/image_strings.dart';
 
 import 'package:shop/utils/constants/sizes.dart';
 
+import 'package:shop/features/shop/controllers/product_controller.dart';
+import 'package:shop/common/widgets/shimmer/vertical_product_shimmer.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ProductController());
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -32,7 +37,10 @@ class HomeScreen extends StatelessWidget {
                   const FHomeAppBar(),
                   const SizedBox(height: FSizes.defaultBtwSections),
                   //Search Bar
-                  const FSearchContainer(text: 'Search in Store'),
+                  FSearchContainer(
+                    text: 'Search in Store',
+                    ontap: () => Get.to(() => const SearchScreen()),
+                  ),
                   const SizedBox(height: FSizes.defaultBtwSections),
                   //Catogories
                   Padding(
@@ -66,13 +74,7 @@ class HomeScreen extends StatelessWidget {
               padding: EdgeInsets.all(FSizes.md),
               child: Column(
                 children: [
-                  FPromoSlider(
-                    banners: [
-                      FImages.watchBanner,
-                      FImages.shoeBanner,
-                      FImages.clothBanner,
-                    ],
-                  ),
+                  const FPromoSlider(),
                   const SizedBox(height: FSizes.defaultBtwSections),
 
                   //heading
@@ -84,10 +86,18 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(height: FSizes.defaultBtwItems),
 
                   //POPULAR PRODUCTS
-                  FGridLayout(
-                    itemCount: 4,
-                    itemBuilder: (_, index) => FProductCardVertical(),
-                  ),
+                  Obx(() {
+                    if (controller.isLoading.value) return const FVerticalProductShimmer();
+
+                    if (controller.featuredProducts.isEmpty) {
+                      return Center(child: Text('No Data Found!', style: Theme.of(context).textTheme.bodyMedium));
+                    }
+
+                    return FGridLayout(
+                      itemCount: controller.featuredProducts.length,
+                      itemBuilder: (_, index) => FProductCardVertical(product: controller.featuredProducts[index]),
+                    );
+                  }),
                 ],
               ),
             ),

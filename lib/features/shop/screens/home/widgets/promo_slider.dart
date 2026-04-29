@@ -12,30 +12,40 @@ import 'package:shop/utils/constants/colors.dart';
 
 import 'package:shop/utils/constants/sizes.dart';
 
-class FPromoSlider extends StatelessWidget {
-  const FPromoSlider({super.key, required this.banners});
+import 'package:shop/features/shop/controllers/banner_controller.dart';
+import 'package:shop/common/widgets/shimmer/shimmer.dart';
 
-  final List<String> banners;
+class FPromoSlider extends StatelessWidget {
+  const FPromoSlider({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(HomeController());
-    return Column(
-      children: [
-        CarouselSlider(
-          items: banners.map((url) =>  FRoundedImage(imageUrl: url)) . toList(),
-          options: CarouselOptions(
-            viewportFraction: 1,
-            onPageChanged: (index, _) => controller.updatePageIndicator(index),
+    final controller = Get.put(BannerController());
+    return Obx(() {
+      if (controller.isLoading.value) return FShimmerEffect(width: double.infinity, height: 190);
+      if (controller.banners.isEmpty) return const SizedBox();
+
+      return Column(
+        children: [
+          CarouselSlider(
+            items: controller.banners
+                .map((banner) => FRoundedImage(
+                      imageUrl: banner.imageUrl,
+                      isNetworkImage: true,
+                      onPressed: () => Get.toNamed(banner.targetScreen),
+                    ))
+                .toList(),
+            options: CarouselOptions(
+              viewportFraction: 1,
+              onPageChanged: (index, _) => controller.updatePageIndicator(index),
+            ),
           ),
-        ),
-        const SizedBox(height: FSizes.defaultBtwItems),
-        Center(
-          child: Obx(
-            () => Row(
+          const SizedBox(height: FSizes.defaultBtwItems),
+          Center(
+            child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                for (int i = 0; i < banners.length; i++)
+                for (int i = 0; i < controller.banners.length; i++)
                   FCircularContainer(
                     margin: const EdgeInsets.only(right: 10),
                     width: 20,
@@ -47,8 +57,8 @@ class FPromoSlider extends StatelessWidget {
               ],
             ),
           ),
-        ),
-      ],
-    );
+        ],
+      );
+    });
   }
 }
