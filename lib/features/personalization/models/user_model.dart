@@ -8,7 +8,7 @@ class UserModel {
   final String username;
   final String email;
   final String phoneNumber;
-  final String ProfilePicture;
+  String profilePicture;
 
   UserModel({
     required this.id,
@@ -17,7 +17,7 @@ class UserModel {
     required this.username,
     required this.email,
     required this.phoneNumber,
-    required this.ProfilePicture,
+    required this.profilePicture,
   });
 
   //Helper funtion to get the full name
@@ -50,7 +50,7 @@ class UserModel {
     username: '',
     email: '',
     phoneNumber: '',
-    ProfilePicture: '',
+    profilePicture: '',
   );
 
   //convert model to json structure for storing data in firebase
@@ -61,7 +61,7 @@ class UserModel {
       'Username': username,
       'Email': email,
       'PhoneNumber': phoneNumber,
-      'ProfilePicture': ProfilePicture,
+      'ProfilePicture': profilePicture,
     };
   }
 
@@ -78,7 +78,7 @@ class UserModel {
         username: data['UserName'] ?? '',
         email: data['Email'] ?? '',
         phoneNumber: data['PhoneNumber'] ?? '',
-        ProfilePicture: data['ProfilePicture'] ?? '',
+        profilePicture: data['ProfilePicture'] ?? '',
       );
     } else {
       return UserModel.empty();
