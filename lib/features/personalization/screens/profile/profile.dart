@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/state_manager.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import 'package:shop/common/widgets/appbar/appbar.dart';
 import 'package:shop/common/widgets/images/circular_image.dart';
 import 'package:shop/common/widgets/texts/section_heading.dart';
+import 'package:shop/features/personalization/controllers/user_controller.dart';
 import 'package:shop/features/personalization/screens/profile/widget/profile_menu.dart';
+import 'package:shop/features/personalization/screens/profile/widget/change_name.dart';
 import 'package:shop/utils/constants/image_strings.dart';
 import 'package:shop/utils/constants/sizes.dart';
 
@@ -13,6 +17,7 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
     return Scaffold(
       appBar: FAppBar(showBackArrow: true, title: Text('Profile')),
 
@@ -49,8 +54,8 @@ class ProfileScreen extends StatelessWidget {
               FSectionHeading(title: 'Profile Information' , ),
               const SizedBox(height: FSizes.defaultBtwItems),
 
-              FProfileMenu(onPressed: () {  }, title: 'Name', value: 'Faris Ahmad',),
-              FProfileMenu(onPressed: () {  }, title: 'Username', value: 'Farix21',),
+              FProfileMenu(onPressed: () => Get.to(() => const ChangeName()), title: 'Name', value: controller.user.value!.fullName,),
+              FProfileMenu(onPressed: () {  }, title: 'Username', value: controller.user.value!.username,),
 
               const SizedBox(height: FSizes.defaultBtwItems),
               const Divider(),
@@ -60,16 +65,16 @@ class ProfileScreen extends StatelessWidget {
               FSectionHeading(title: 'Personal Information' , ),
               const SizedBox(height: FSizes.defaultBtwItems),
 
-              FProfileMenu(onPressed: () {  }, title: 'User ID', value: '45689', icon: Iconsax.copy_copy,),
-              FProfileMenu(onPressed: () {  }, title: 'E-mail', value: 'faris@gmail.com',),
-              FProfileMenu(onPressed: () {  }, title: 'Phone Number', value: '+92-327-0944766',),
+              FProfileMenu(onPressed: () {  }, title: 'User ID', value: controller.user.value!.id, icon: Iconsax.copy_copy,),
+              FProfileMenu(onPressed: () {  }, title: 'E-mail', value: controller.user.value!.email,),
+              FProfileMenu(onPressed: () {  }, title: 'Phone Number', value: controller.user.value!.phoneNumber,),
               FProfileMenu(onPressed: () {  }, title: 'Gender', value: 'Male',),
               FProfileMenu(onPressed: () {  }, title: 'Date of Birth', value: '17 Mar 2005',),
               const Divider(),
               const SizedBox(height: FSizes.defaultBtwItems),
 
               Center(
-                child: TextButton(onPressed: (){}
+                child: TextButton(onPressed: () => controller.deleteAccountWarningPopup()
                 , child: Text('Close Account' ,style: TextStyle( color: Colors.red),)),
               )
 
