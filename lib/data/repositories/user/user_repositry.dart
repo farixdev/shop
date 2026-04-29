@@ -1,13 +1,18 @@
+
 import 'dart:io';
 
+
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_storage/firebase_storage.dart';
+
+
 
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+
 import 'package:image_picker/image_picker.dart';
 
 import 'package:shop/data/repositories/authentication/authentication_repository.dart';
+import 'package:shop/utils/helpers/cloudinary_helper.dart';
 
 import 'package:shop/features/personalization/models/user_model.dart';
 import 'package:shop/utils/exceptions/firebase_exceptions.dart';
@@ -111,10 +116,8 @@ class UserRepositry extends GetxController {
   //upload any image
   Future<String> uploadImage(String path, XFile image) async {
     try {
-      final ref = FirebaseStorage.instance.ref(path).child(image.name);
-      await ref.putFile(File(image.path));
-
-      final url = await ref.getDownloadURL();
+      // Use Cloudinary instead of Firebase Storage
+      final url = await FCloudinaryHelper.uploadImage(image);
       return url;
     } on FirebaseException catch (e) {
       throw FFirebaseException(e.code).message;
