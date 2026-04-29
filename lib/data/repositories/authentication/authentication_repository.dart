@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 
@@ -30,7 +31,26 @@ class AuthenticationRepository extends GetxController {
   @override
   void onReady() {
     FlutterNativeSplash.remove();
+    _seedAdminCredentials();
     screenRedirect();
+  }
+
+  /// One-time auto-seed: writes admin email to Firestore if it doesn't exist yet
+  Future<void> _seedAdminCredentials() async {
+    try {
+      final doc = await FirebaseFirestore.instance
+          .collection('Settings')
+          .doc('AdminCredentials')
+          .get();
+      if (!doc.exists || doc.data()?['AdminEmail'] != 'graymatter00005@gmail.com') {
+        await FirebaseFirestore.instance
+            .collection('Settings')
+            .doc('AdminCredentials')
+            .set({'AdminEmail': 'graymatter00005@gmail.com'});
+      }
+    } catch (_) {
+      // Silent fail — not critical
+    }
   }
 
   //Function to show relevant screen
