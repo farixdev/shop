@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
-
-
-
-
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:shop/utils/constants/sizes.dart';
-
-
 
 class FRoundedImage extends StatelessWidget {
   const FRoundedImage({
@@ -51,14 +46,22 @@ class FRoundedImage extends StatelessWidget {
           borderRadius: applyImageRadius
               ? BorderRadius.circular(borderRadius)
               : BorderRadius.zero,
-          child: Image(
-            image: isNetworkImage
-                ? NetworkImage(imageUrl)
-                : AssetImage(imageUrl) as ImageProvider,
-            fit: fit,
-          ),
+          child: isNetworkImage
+              ? CachedNetworkImage(
+                  imageUrl: imageUrl,
+                  fit: fit,
+                  progressIndicatorBuilder: (context, url, progress) => const Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                )
+              : Image(
+                  image: AssetImage(imageUrl) as ImageProvider,
+                  fit: fit,
+                ),
         ),
       ),
     );
   }
 }
+
