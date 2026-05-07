@@ -1,17 +1,79 @@
-# shop
+# 🛍️ F-Store
 
-A new Flutter project.
+F-Store is a modern and fully responsive Flutter-based E-Commerce application designed to deliver a seamless shopping experience across all devices. The project includes both a complete customer-side application and a powerful Admin Panel for managing products, orders, users, and store operations efficiently.
 
-## Getting Started
+The application is built using clean architecture principles, scalable folder structure, responsive UI design, and modern Flutter development practices.
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+# ✨ Features
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+## 👤 User Side Features
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- User Authentication & Authorization
+- Email Login & Registration
+- Forgot Password Functionality
+- Product Categories & Subcategories
+- Product Search & Filtering
+- Product Details Screen
+- Wishlist Management
+- Shopping Cart System
+- Checkout Flow
+- Order Management
+- Address Management
+- User Profile Management
+- Responsive UI for Mobile, Tablet & Desktop
+- Dark & Light Theme Support
+- Real-Time Data Handling
+- Smooth Animations & Modern UI
+
+---
+
+## 🛠️ Admin Panel Features
+
+- Dashboard Analytics
+- Product Management
+- Category Management
+- Banner Management
+- Order Management
+- User Management
+- Inventory Tracking
+- Sales Monitoring
+- Image Upload & Management
+- Responsive Admin Interface
+
+---
+
+# 📱 Responsive Design
+
+F-Store is developed with a fully responsive architecture to ensure smooth performance and optimized layouts across:
+
+- Android Devices
+- iOS Devices
+- Tablets
+- Desktop Screens
+- Web Platforms
+
+The application uses adaptive widgets and responsive layouts to provide a consistent user experience on every screen size.
+
+---
+
+# 🧱 Project Structure
+
+```bash
+lib/
+│
+├── common/
+├── features/
+│   ├── authentication/
+│   ├── shop/
+│   ├── personalisation/
+│   ├── admin_panel/
+│   └── checkout/
+│
+├── utils/
+├── data/
+├── bindings/
+├── routes/
+├── widgets/
+└── main.dart
